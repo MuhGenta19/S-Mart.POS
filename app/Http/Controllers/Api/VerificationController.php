@@ -52,8 +52,6 @@ class VerificationController extends BaseController
     {
         if ($request->user()->hasVerifiedEmail()) {
             return $this->responseOk('already verified');
-
-            // return response(['message'=>'Already verified']);
         }
 
         $request->user()->sendEmailVerificationNotification();
@@ -61,7 +59,6 @@ class VerificationController extends BaseController
         if ($request->wantsJson()) {
             return $this->responseOk('check your email');
         }
-
         return back()->with('resent', true);
     }
 
@@ -83,17 +80,12 @@ class VerificationController extends BaseController
 
         if ($request->user()->hasVerifiedEmail()) {
             return $this->responseOk('already verified');
-            // return response(['message'=>'Already verified']);
-
-            // return redirect($this->redirectPath());
         }
 
         if ($request->user()->markEmailAsVerified()) {
             event(new Verified($request->user()));
         }
         return $this->responseOk('successfully verified');
-        // return response(['message'=>'Successfully verified']);
-
     }
 
 

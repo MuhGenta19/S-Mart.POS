@@ -71,7 +71,7 @@ class UserController extends BaseController
                 'token' => $token,
                 'user' => $user,
             ];
-            return $this->responseOk($response, 201, 'successfully registered');
+            return $this->responseOk(201, 'successfully registered', $response);
         } else {
             return $this->responseError('failed to register');
         }
@@ -89,19 +89,9 @@ class UserController extends BaseController
         $user = User::get();
 
         if (empty($user)) {
-            return $this->responseError('users does not exist', 403);
+            return $this->responseError(403, 'users does not exist');
         }
-        return $this->responseOk($user, 200, 'successfully loaded users data');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return $this->responseOk(200, 'successfully loaded users data', $user);
     }
 
     /**
@@ -125,7 +115,7 @@ class UserController extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return $this->responseError('failed to add user', 422, $validator->errors());
+            return $this->responseError(422, $validator->errors(), 'failed to add user');
         }
 
         $image = base64_encode(file_get_contents(request('photo')));
@@ -157,7 +147,7 @@ class UserController extends BaseController
         $user = User::create($params);
         $user->assignRole(request('role'));
 
-        return $this->responseOk($user, 201, 'successfully added user');
+        return $this->responseOk(201, 'successfully added user', $user);
     }
 
     /**
@@ -171,17 +161,6 @@ class UserController extends BaseController
         $user = User::find($id);
 
         return $this->responseOk($user);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -206,7 +185,7 @@ class UserController extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return $this->responseError('failed to update user', 422, $validator->errors());
+            return $this->responseError(422, $validator->errors(), 'failed to update user');
         }
 
         $image = base64_encode(file_get_contents(request('photo')));
@@ -242,7 +221,7 @@ class UserController extends BaseController
         $user->update($params);
         $user->assignRole(request('role') ?? $user->role);
 
-        return $this->responseOk($user, 200, 'successfully updated user');
+        return $this->responseOk(200, 'successfully updated user', $user);
     }
 
     /**
@@ -256,6 +235,6 @@ class UserController extends BaseController
         $user = User::find($id);
         $user->delete();
 
-        return $this->responseOk(null, 200, 'failed to delete user');
+        return $this->responseOk(200, 'failed to delete user', null);
     }
 }

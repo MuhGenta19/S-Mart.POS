@@ -29,5 +29,13 @@ Route::get('email/verify/{id}/{hash}', 'Api\VerificationController@verify')->nam
 Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     Route::post('logout', 'UserController@logout');
 
+    //Supplier
+    Route::post('createSupplier', 'SupplierController@store'); //create supplier
+    Route::get('getSupplier', 'SupplierController@index'); //read supplier
+    Route::get('getSupplier/{id}', 'SupplierController@show'); //read supplier by id
+    Route::post('updateSupplier/{id}', 'SupplierController@update'); //update supplier
+    Route::delete('deleteSupplier/{id}', 'SupplierController@destroy'); //delete supplier
+
+    //Category
 
 });

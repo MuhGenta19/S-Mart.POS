@@ -10,8 +10,8 @@ class BaseController extends Controller
     {
         $response = [
             'code' => $code,
-            'data' => $result,
             'message' => $message,
+            'data' => $result,
         ];
 
 
