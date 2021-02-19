@@ -37,5 +37,10 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     Route::delete('deleteSupplier/{id}', 'SupplierController@destroy'); //delete supplier
 
     //Category
+    Route::post('createCategory', 'CategoryController@store'); //create category
+    Route::get('getCategory', 'CategoryController@index'); //read category
+    Route::get('getCategory/{id}', 'CategoryController@show'); //read category by id
+    Route::post('updateCategory/{id}', 'CategoryController@update'); //update category
+    Route::delete('deleteCategory/{id}', 'CategoryController@destroy'); //delete category
 
 });
