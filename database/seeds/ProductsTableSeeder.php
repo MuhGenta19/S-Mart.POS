@@ -150,7 +150,7 @@ class ProductsTableSeeder extends Seeder
             'harga_beli' => 500,
             'harga_jual' => 1000,
             'category_id' => 5,
-            'merk' => "Faber-Castell",
+            'merek' => "Faber-Castell",
             'stok' => 100,
             'diskon' => 0,
         ]);
