@@ -128,7 +128,7 @@ class ProductsTableSeeder extends Seeder
             'harga_beli' => 27000,
             'harga_jual' => 32000,
             'category_id' => 4,
-            'merk' => 'Stella',
+            'merek' => 'Stella',
             'stok' => 100,
             'diskon' => 500,
         ]);
@@ -139,7 +139,7 @@ class ProductsTableSeeder extends Seeder
             'harga_beli' => 21000,
             'harga_jual' => 35000,
             'category_id' => 5,
-            'merk' => 'Sinar Dunia',
+            'merek' => 'Sinar Dunia',
             'stok' => 100,
             'diskon' => 500,
         ]);
