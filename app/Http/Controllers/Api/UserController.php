@@ -71,7 +71,7 @@ class UserController extends BaseController
                 'token' => $token,
                 'user' => $user,
             ];
-            return $this->responseOk(201, 'successfully registered', $response);
+            return $this->responseOk($response, 201, 'successfully registered');
         } else {
             return $this->responseError('failed to register');
         }
@@ -91,7 +91,7 @@ class UserController extends BaseController
         if (empty($user)) {
             return $this->responseError(403, 'users does not exist');
         }
-        return $this->responseOk(200, 'successfully loaded users data', $user);
+        return $this->responseOk($user, 200, 'successfully loaded users data');
     }
 
     /**
@@ -147,7 +147,7 @@ class UserController extends BaseController
         $user = User::create($params);
         $user->assignRole(request('role'));
 
-        return $this->responseOk(201, 'successfully added user', $user);
+        return $this->responseOk($user, 201, 'successfully added user');
     }
 
     /**
@@ -221,7 +221,7 @@ class UserController extends BaseController
         $user->update($params);
         $user->assignRole(request('role') ?? $user->role);
 
-        return $this->responseOk(200, 'successfully updated user', $user);
+        return $this->responseOk($user, 200, 'successfully updated user');
     }
 
     /**
@@ -235,6 +235,6 @@ class UserController extends BaseController
         $user = User::find($id);
         $user->delete();
 
-        return $this->responseOk(200, 'failed to delete user', null);
+        return $this->responseOk(null, 200, 'failed to delete user');
     }
 }

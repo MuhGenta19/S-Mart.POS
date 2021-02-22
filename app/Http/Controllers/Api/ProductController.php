@@ -84,7 +84,7 @@ class ProductController extends BaseController
         ];
 
         $product = product::create($params);
-        return $this->responseOk(201, 'successfully added product', $product);
+        return $this->responseOk($product, 201, 'successfully added product');
     }
 
     /**
@@ -145,7 +145,7 @@ class ProductController extends BaseController
         ];
 
         $product->update($params);
-        return $this->responseOk(200, 'successfully updated product', $product);
+        return $this->responseOk($product, 200, 'successfully updated product');
     }
 
     /**
@@ -159,6 +159,6 @@ class ProductController extends BaseController
         $product = product::find($id);
         $product->delete();
 
-        return $this->responseOk(200, 'successfully deleted product', null);
+        return $this->responseOk(null, 200, 'successfully deleted product');
     }
 }

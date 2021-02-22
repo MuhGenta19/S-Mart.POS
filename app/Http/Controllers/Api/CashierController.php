@@ -70,7 +70,7 @@ class CashierController extends BaseController
         $user = User::create($params);
         $user->assignRole('cashier');
 
-        return $this->responseOk(201, 'successfully added cashier', $user);
+        return $this->responseOk($user, 201, 'successfully added cashier');
     }
 
     /**
@@ -142,7 +142,7 @@ class CashierController extends BaseController
 
         if ($user->hasRole('kasir')) {
             $user->update($params);
-            return $this->responseOk(200, 'successfully updated cashier', $user);
+            return $this->responseOk($user, 200, 'successfully updated cashier');
         } else {
             return $this->responseError('this is not a cashier account');
         }
@@ -161,7 +161,7 @@ class CashierController extends BaseController
             return $this->responseError('there is no account with this ID');
         } elseif ($user->hasRole('kasir')) {
             $user->delete();
-            return $this->responseOk(200, 'successfully deleted cashier', null);
+            return $this->responseOk(null, 200, 'successfully deleted cashier');
         } else {
             return $this->responseError('this is not a cashier account');
         }
