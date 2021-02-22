@@ -33,7 +33,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     Route::post('createSupplier', 'SupplierController@store'); //create supplier
     Route::get('getSupplier', 'SupplierController@index'); //read supplier
     Route::get('getSupplier/{id}', 'SupplierController@show'); //read supplier by id
-    Route::post('updateSupplier/{id}', 'SupplierController@update'); //update supplier
+    Route::post('updateSupplier/{id}', 'SupplierController@update'); //update profile supplier
     Route::delete('deleteSupplier/{id}', 'SupplierController@destroy'); //delete supplier
 
     //Category
@@ -42,5 +42,22 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     Route::get('getCategory/{id}', 'CategoryController@show'); //read category by id
     Route::post('updateCategory/{id}', 'CategoryController@update'); //update category
     Route::delete('deleteCategory/{id}', 'CategoryController@destroy'); //delete category
+
+    //Product
+    Route::get('searchProduct/{data}', 'ProductController@search'); //search product
+    Route::post('createProduct', 'ProductController@store'); //create product
+    Route::get('getProduct', 'ProductController@index'); //read product
+    Route::get('getProduct/{id}', 'ProductController@show'); //read product by id
+    Route::get('uidProduct/{uid}', 'ProductController@uid'); //read product by uid (kode produk)
+    Route::post('updateProduct/{id}', 'ProductController@update'); //update product
+    Route::delete('deleteProduct/{id}', 'ProductController@destroy'); //delete product
+
+    //Cashier
+    Route::post('createCashier', 'CashierController@store')->middleware('role:admin'); //create cashier
+    Route::get('getCashier', 'CashierController@index')->middleware('role:admin'); //read cashier
+    Route::get('getCashier/{id}', 'CashierController@show')->middleware('role:admin'); //read cashier by id
+    Route::post('updateCashier/{id}', 'CashierController@update')->middleware('role:admin'); //update profile cashier
+    Route::delete('deleteCashier/{id}', 'CashierController@destroy')->middleware('role:admin'); //delete cashier
+
 
 });
