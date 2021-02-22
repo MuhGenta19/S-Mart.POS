@@ -12,7 +12,7 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        Product::ceate([
+        Product::create([
             'name' => 'Kaos Oblong',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 30000,
@@ -23,7 +23,7 @@ class ProductsTableSeeder extends Seeder
             'diskon' => 5000
         ]);
 
-        Product::ceate([
+        Product::create([
             'name' => 'Celana Pendek',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 30000,
@@ -34,7 +34,7 @@ class ProductsTableSeeder extends Seeder
             'diskon' => 5000
         ]);
 
-        Product::ceate([
+        Product::create([
             'name' => 'Celana Panjang',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 50000,
@@ -45,7 +45,7 @@ class ProductsTableSeeder extends Seeder
             'diskon' => 5000
         ]);
 
-        Product::ceate([
+        Product::create([
             'name' => 'Jaket',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 50000,
@@ -56,7 +56,7 @@ class ProductsTableSeeder extends Seeder
             'diskon' => 5000
         ]);
 
-        Product::ceate([
+        Product::create([
             'name' => 'Beras Curah 1kg',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 10000,
@@ -67,7 +67,7 @@ class ProductsTableSeeder extends Seeder
             'diskon' => 500
         ]);
 
-        Product::ceate([
+        Product::create([
             'name' => 'Aqua Air Mineral 220ml',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 20000,
@@ -78,7 +78,7 @@ class ProductsTableSeeder extends Seeder
             'diskon' => 100,
         ]);
 
-        Product::ceate([
+        Product::create([
             'name' => 'Roma Biskuit Kelapa',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 19000,
@@ -89,7 +89,7 @@ class ProductsTableSeeder extends Seeder
             'diskon' => 100,
         ]);
 
-        Product::ceate([
+        Product::create([
             'name' => 'Momogi Cokelat Snack 200g',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 14000,
@@ -100,7 +100,7 @@ class ProductsTableSeeder extends Seeder
             'diskon' => 500,
         ]);
 
-        Product::ceate([
+        Product::create([
             'name' => 'Lifebuoy Cool Fresh Sabun batang 75Gr',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 1000,
@@ -111,7 +111,7 @@ class ProductsTableSeeder extends Seeder
             'diskon' => 500,
         ]);
 
-        Product::ceate([
+        Product::create([
             'name' => 'Rinso Matic Deterjen Bubuk',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 15000,
@@ -122,7 +122,7 @@ class ProductsTableSeeder extends Seeder
             'diskon' => 500,
         ]);
 
-        Product::ceate([
+        Product::create([
             'name' => 'Stella Air Freshener Refill Green 225ml',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 27000,
@@ -133,7 +133,7 @@ class ProductsTableSeeder extends Seeder
             'diskon' => 500,
         ]);
 
-        Product::ceate([
+        Product::create([
             'name' => 'Buku Tulis Sinar Dunia 38 Lembar',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 21000,
@@ -144,7 +144,7 @@ class ProductsTableSeeder extends Seeder
             'diskon' => 500,
         ]);
 
-        Product::ceate([
+        Product::create([
             'name' => 'Pensil Faber-Castell 2B',
             'uid' => rand(1000,9999999999),
             'harga_beli' => 500,
