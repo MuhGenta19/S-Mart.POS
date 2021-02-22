@@ -49,7 +49,7 @@ class SupplierController extends BaseController
         ];
 
         $supplier = Supplier::create($params);
-        return $this->responseOk(201, 'successfully added supplier' , $supplier);
+        return $this->responseOk($supplier, 201, 'successfully added supplier');
     }
 
     /**
@@ -92,7 +92,7 @@ class SupplierController extends BaseController
         ];
 
         $supplier->update($params);
-        return $this->responseOk(200, 'successfully updated supplier', $supplier);
+        return $this->responseOk($supplier, 200, 'successfully updated supplier');
     }
 
     /**
@@ -106,6 +106,6 @@ class SupplierController extends BaseController
         $supplier = Supplier::find($id);
         $supplier->delete();
 
-        return $this->responseOk(200, 'successfully deleted supplier', null);
+        return $this->responseOk(null, 200, 'successfully deleted supplier');
     }
 }
