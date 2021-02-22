@@ -45,7 +45,7 @@ class CategoryController extends BaseController
         ];
 
         $Category = Category::create($params);
-        return $this->responseOk(201,'successfully added category', $Category);
+        return $this->responseOk($Category, 201, 'successfully added category');
     }
 
     /**
@@ -77,7 +77,7 @@ class CategoryController extends BaseController
         ];
 
         $Category->update($params);
-        return $this->responseOk(200, 'successfully added category', $Category);
+        return $this->responseOk($Category, 200, 'successfully added category');
     }
 
     /**
@@ -91,6 +91,6 @@ class CategoryController extends BaseController
         $Category = Category::find($id);
         $Category->delete();
 
-        return $this->responseOk(200, 'successfully deleted categroy', null);
+        return $this->responseOk(null, 200, 'successfully deleted categroy');
     }
 }
