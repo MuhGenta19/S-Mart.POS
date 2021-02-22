@@ -73,7 +73,7 @@ class ProductsTableSeeder extends Seeder
             'harga_beli' => 20000,
             'harga_jual' => 24000,
             'category_id' => 3,
-            'merk' => 'Aqua',
+            'merek' => 'Aqua',
             'stok' => 100,
             'diskon' => 100,
         ]);
@@ -84,7 +84,7 @@ class ProductsTableSeeder extends Seeder
             'harga_beli' => 19000,
             'harga_jual' => 23000,
             'category_id' => 3,
-            'merk' => 'Roma',
+            'merek' => 'Roma',
             'stok' => 100,
             'diskon' => 100,
         ]);
@@ -95,7 +95,7 @@ class ProductsTableSeeder extends Seeder
             'harga_beli' => 14000,
             'harga_jual' => 17000,
             'category_id' => 3,
-            'merk' => 'Juara Snack',
+            'merek' => 'Juara Snack',
             'stok' => 100,
             'diskon' => 500,
         ]);
@@ -106,7 +106,7 @@ class ProductsTableSeeder extends Seeder
             'harga_beli' => 1000,
             'harga_jual' => 3000,
             'category_id' => 4,
-            'merk' => 'Lifebuoy',
+            'merek' => 'Lifebuoy',
             'stok' => 100,
             'diskon' => 500,
         ]);
@@ -117,7 +117,7 @@ class ProductsTableSeeder extends Seeder
             'harga_beli' => 15000,
             'harga_jual' => 18000,
             'category_id' => 4,
-            'merk' => 'Rinso',
+            'merek' => 'Rinso',
             'stok' => 100,
             'diskon' => 500,
         ]);
