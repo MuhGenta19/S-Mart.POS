@@ -93,12 +93,16 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     Route::get('saldoMember/{id}', 'MemberController@saldo')->middleware('role:admin|kasir|member'); //read saldo
     Route::post('topupMember/{id}', 'MemberController@topup')->middleware('role:admin|kasir'); //topup saldo
 
-    Route::get('penjualan/dibayar', 'PenjualanController@dibayar');
-    Route::get('penjualan/belumbayar', 'PenjualanController@belumbayar');
-    Route::get('penjualan/{id}', 'PenjualanController@show');
-    Route::post('penjualan', 'PenjualanController@store');
-    Route::post('penjualan/{id}', 'PenjualanController@update');
-    Route::delete('penjualan/{id}', 'PenjualanController@destroy');
+    //Penjualan
+    Route::get('penjualan/dibayar', 'PenjualanController@dibayar'); //read penjualan yg sudah dibayar
+    Route::get('penjualan/belumbayar', 'PenjualanController@belumbayar'); //read penjualan yg belum dibayar
+    Route::get('penjualan/{id}', 'PenjualanController@show'); //read penjualan by id
+    Route::post('penjualan', 'PenjualanController@store'); //create penjualan
+    Route::post('penjualan/{id}', 'PenjualanController@update'); //update penjualan
+    Route::delete('penjualan/{id}', 'PenjualanController@destroy'); //delete penjualan
 
-    
+    Route::get('detailpenjualan/request', 'DetailPenjualanController@request'); //read penjualan yg di request
+    Route::post('detailpenjualan/confirm', 'DetailPenjualanController@confirm'); //mengonfirmasi penjualan
+
+
 });

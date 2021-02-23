@@ -53,7 +53,7 @@ class DetailPenjualanController extends BaseController
         if ($array == []) {
             return $this->responseError('there is no products data that have been purchased or confirmed');
         }
-        return $this->responseOk($array, 200, 'products datathat have been purchased or confirmed');
+        return $this->responseOk($array, 200, 'products data that have been purchased or confirmed');
     }
 
     public function confirm(Request $request)
