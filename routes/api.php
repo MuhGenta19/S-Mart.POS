@@ -64,10 +64,21 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     Route::delete('deleteProduct/{id}', 'ProductController@destroy'); //delete product
 
     //Pembelian
-    Route::get('getPembelian', 'PembelianController@index'); //read pembelian
     Route::post('createPembelian', 'PembelianController@store'); //create pembelian
+    Route::get('getPembelian', 'PembelianController@index'); //read pembelian
     Route::post('updatePembelian/{id}', 'PembelianController@update'); //update pembelian
     Route::delete('deletePembelian/{id}', 'PembelianController@destroy'); //delete pembelian
+
+    //Penjualan
+    Route::post('createPenjualan', 'PenjualanController@store'); //create penjualan
+    Route::get('penjualanDibayar', 'PenjualanController@dibayar'); //read penjualan yg sudah dibayar
+    Route::get('penjualanBelumbayar', 'PenjualanController@belumbayar'); //read penjualan yg belum dibayar
+    Route::get('penjualan/{id}', 'PenjualanController@show'); //read penjualan by id
+    Route::post('penjualan/{id}', 'PenjualanController@update'); //update penjualan
+    Route::delete('penjualan/{id}', 'PenjualanController@destroy'); //delete penjualan
+
+    Route::get('detailpenjualan/request', 'DetailPenjualanController@request'); //read penjualan yg di request
+    Route::post('detailpenjualan/confirm', 'DetailPenjualanController@confirm'); //mengonfirmasi penjualan
 
     //Pengeluaran
     Route::post('createPengeluaran', 'PengeluaranController@store')->middleware('role:admin|pimpinan'); //create pengeluaran
@@ -92,17 +103,5 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
 
     Route::get('saldoMember/{id}', 'MemberController@saldo')->middleware('role:admin|kasir|member'); //read saldo
     Route::post('topupMember/{id}', 'MemberController@topup')->middleware('role:admin|kasir'); //topup saldo
-
-    //Penjualan
-    Route::get('penjualan/dibayar', 'PenjualanController@dibayar'); //read penjualan yg sudah dibayar
-    Route::get('penjualan/belumbayar', 'PenjualanController@belumbayar'); //read penjualan yg belum dibayar
-    Route::get('penjualan/{id}', 'PenjualanController@show'); //read penjualan by id
-    Route::post('penjualan', 'PenjualanController@store'); //create penjualan
-    Route::post('penjualan/{id}', 'PenjualanController@update'); //update penjualan
-    Route::delete('penjualan/{id}', 'PenjualanController@destroy'); //delete penjualan
-
-    Route::get('detailpenjualan/request', 'DetailPenjualanController@request'); //read penjualan yg di request
-    Route::post('detailpenjualan/confirm', 'DetailPenjualanController@confirm'); //mengonfirmasi penjualan
-
 
 });
