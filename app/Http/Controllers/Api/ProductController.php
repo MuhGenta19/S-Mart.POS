@@ -36,7 +36,7 @@ class ProductController extends BaseController
         if (empty($product)) {
             return $this->responseError(403, 'products empty');
         }
-        return $this->responseOk(200, 'successfully loaded products', $product);
+        return $this->responseOk($product, 200, 'successfully loaded products');
     }
 
     /**
