@@ -116,7 +116,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     Route::get('getLaporan', 'LaporanController@index')->middleware('role:admin|pimpinan'); //read laporan keuangan
 
     //Absent
-    Route::get('absent', 'AbsentController@absent')->middleware('role:admin|pimpinan'); //read rekap absent harian
+    Route::get('getAbsent', 'AbsentController@absent')->middleware('role:admin|pimpinan'); //read rekap absent harian
 
 
 });
