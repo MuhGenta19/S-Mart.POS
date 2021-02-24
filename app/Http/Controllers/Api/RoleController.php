@@ -16,7 +16,7 @@ class RoleController extends Controller
         if (empty($role)) {
             return $this->responseError('roles empty', 403);
         }
-        return $this->responseOk($role, 200, 'successfully loaded roles');
+        return $this->responseOk($role, 200, 'successfully loaded roles data');
     }
 
     /**
