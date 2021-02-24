@@ -112,4 +112,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     Route::get('saldoMember/{id}', 'MemberController@saldo')->middleware('role:admin|kasir|pimpinan|member'); //read saldo
     Route::post('topupMember/{id}', 'MemberController@topup')->middleware('role:admin|kasir'); //topup saldo
 
+    //Laporan
+    Route::get('getLaporan', 'LaporanController@index')->middleware('role:admin|pimpinan'); //read laporan keuangan
+
 });
