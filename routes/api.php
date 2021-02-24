@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     //User
     Route::post('createUser', 'UserController@store')->middleware('role:admin'); //create user
     Route::get('getUser', 'UserController@index')->middleware('role:admin'); //read user
+    Route::get('getUser/{id}', 'UserController@show')->middleware('role:admin'); //read user by id
     Route::post('updateUser/{id}', 'UserController@update')->middleware('role:admin'); //update profile user
     Route::delete('deleteUser/{id}', 'UserController@destroy')->middleware('role:admin'); //delete user
 
