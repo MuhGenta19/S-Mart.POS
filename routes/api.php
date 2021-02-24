@@ -85,8 +85,8 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     Route::post('updatePenjualan/{id}', 'PenjualanController@update')->middleware('role:admin|kasir'); //update penjualan
     Route::delete('deletePenjualan/{id}', 'PenjualanController@destroy')->middleware('role:admin|kasir'); //delete penjualan
 
-    Route::get('detailpenjualan/request', 'DetailPenjualanController@request')->middleware('role:admin|pimpinan|kasir'); //read penjualan yg di request
-    Route::post('detailpenjualan/confirm', 'DetailPenjualanController@confirm')->middleware('role:admin|kasir'); //mengonfirmasi penjualan
+    Route::get('detailPenjualan/request', 'DetailPenjualanController@request')->middleware('role:admin|pimpinan|kasir'); //read penjualan yg di request
+    Route::post('detailPenjualan/confirm', 'DetailPenjualanController@confirm')->middleware('role:admin|kasir'); //mengonfirmasi penjualan
 
     //Pengeluaran
     Route::post('createPengeluaran', 'PengeluaranController@store')->middleware('role:admin|pimpinan'); //create pengeluaran
