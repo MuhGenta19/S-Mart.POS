@@ -40,6 +40,13 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     Route::post('updateUser/{id}', 'UserController@update')->middleware('role:admin'); //update profile user
     Route::delete('deleteUser/{id}', 'UserController@destroy')->middleware('role:admin'); //delete user
 
+    //Role
+    Route::post('createRole', 'RoleController@store')->middleware('role:admin'); //create role
+    Route::get('getRole', 'RoleController@index')->middleware('role:admin'); //read role
+    Route::get('getRole/{id}', 'RoleController@show')->middleware('role:admin'); //read role by id
+    Route::post('updateRole/{id}', 'RoleController@update')->middleware('role:admin'); //update role
+    Route::delete('deleteRole/{id}', 'RoleController@destroy')->middleware('role:admin'); //delete role
+
     //Supplier
     Route::post('createSupplier', 'SupplierController@store')->middleware('role:admin|staff'); //create supplier
     Route::get('getSupplier', 'SupplierController@index')->middleware('role:admin|pimpinan|staff'); //read supplier
@@ -103,12 +110,5 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
 
     Route::get('saldoMember/{id}', 'MemberController@saldo')->middleware('role:admin|kasir|pimpinan|member'); //read saldo
     Route::post('topupMember/{id}', 'MemberController@topup')->middleware('role:admin|kasir'); //topup saldo
-
-    //Role
-    Route::post('createRole', 'RoleController@store')->middleware('role:admin'); //create role
-    Route::get('getRole', 'RoleController@index')->middleware('role:admin'); //read role
-    Route::get('getRole/{id}', 'RoleController@show')->middleware('role:admin'); //read role by id
-    Route::post('updateRole/{id}', 'RoleController@update')->middleware('role:admin'); //update role
-    Route::delete('deleteRole/{id}', 'RoleController@destroy')->middleware('role:admin'); //delete role
 
 });
