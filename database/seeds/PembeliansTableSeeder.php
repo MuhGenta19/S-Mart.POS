@@ -1,6 +1,7 @@
 <?php
 
 use App\Pembelian;
+use App\Product;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
