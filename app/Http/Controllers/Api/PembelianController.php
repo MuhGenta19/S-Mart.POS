@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\product;
+use App\Product;
 use App\Http\Controllers\Api\BaseController;
 use App\Pembelian;
 use Illuminate\Http\Request;
