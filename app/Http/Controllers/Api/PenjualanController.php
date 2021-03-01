@@ -73,7 +73,7 @@ class PenjualanController extends BaseController
         $penjualan = Penjualan::create($params);
         $data['penjualan_id'] = $penjualan->id;
         DetailPenjualan::create($data);
-        return $this->responseOk($penjualan->load('user'), 201, "successfully added product(s) to cart");
+        return $this->responseOk($penjualan->load('user'), 201, "successfully added product to cart");
     }
 
     /**
