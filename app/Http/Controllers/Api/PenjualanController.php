@@ -53,7 +53,7 @@ class PenjualanController extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return $this->responseError('failed to add product to cart', 422, $validator->errors());
+            return $this->responseError("failed to add product(s) to cart", 422, $validator->errors());
         }
 
         $product = product::find($request->product_id);
@@ -64,7 +64,7 @@ class PenjualanController extends BaseController
             'dibayar' => 0,
             'kembalian' => 0,
             'member_id' => null,
-            // 'user_id' => 0
+            'user_id' => 0
         ];
 
         if ($request->jumlah_barang > $product->stok) {
@@ -73,7 +73,7 @@ class PenjualanController extends BaseController
         $penjualan = Penjualan::create($params);
         $data['penjualan_id'] = $penjualan->id;
         DetailPenjualan::create($data);
-        return $this->responseOk($penjualan->load('user'), 201, 'successfully added product to cart');
+        return $this->responseOk($penjualan->load('user'), 201, "successfully added product(s) to cart");
     }
 
     /**
