@@ -89,7 +89,7 @@ class UserController extends BaseController
         $user = User::get();
 
         if (empty($user)) {
-            return $this->responseError(403, 'users does not exist');
+            return $this->responseError(403, 'users empty');
         }
         return $this->responseOk($user, 200, 'successfully loaded users data');
     }
