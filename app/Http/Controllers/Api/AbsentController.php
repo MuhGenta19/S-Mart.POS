@@ -22,7 +22,7 @@ class AbsentController extends BaseController
         foreach ($absents->unique('created_at') as $a) {
             $response[] = [
                 'user_id' => $a->user->id,
-                'nama' => $a->user->nama,
+                'name' => $a->user->name,
                 'hadir' => $a->created_at,
             ];
         }

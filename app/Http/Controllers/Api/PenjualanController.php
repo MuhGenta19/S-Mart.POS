@@ -64,7 +64,7 @@ class PenjualanController extends BaseController
             'dibayar' => 0,
             'kembalian' => 0,
             'member_id' => null,
-            'user_id' => 0
+            // 'user_id' => 0
         ];
 
         if ($request->jumlah_barang > $product->stok) {
@@ -119,7 +119,7 @@ class PenjualanController extends BaseController
             'dibayar' => 0,
             'kembalian' => 0,
             'member_id' => null,
-            'user_id' => 0
+            // 'user_id' => 0
         ];
         $params['total_harga'] = $product->harga_jual * $params['jumlah_barang'];
 

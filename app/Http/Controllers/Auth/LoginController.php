@@ -27,6 +27,20 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
+    // protected function authenticated($request, $user)
+    // {
+    //     if ($user->hasRole('admin')) {
+    //         return redirect('/admin/user');
+    //     } elseif ($user->hasRole('pimpinan')) {
+    //         return redirect('/admin/laporan');
+    //     } elseif ($user->hasRole('staff')) {
+    //         return redirect('/admin/pembelian');
+    //     } elseif ($user->hasRole('kasir')) {
+    //         $data['user_id'] = $user->id;
+    //         Absent::create($data);
+    //         return redirect('/admin/penjualan/dibayar');
+    //     }
+    // }
 
     /**
      * Create a new controller instance.
