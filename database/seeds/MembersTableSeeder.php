@@ -3,7 +3,7 @@
 use App\Member;
 use Illuminate\Database\Seeder;
 
-class MemberSeeder extends Seeder
+class MembersTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
