@@ -20,11 +20,11 @@ class DetailPenjualanController extends BaseController
         foreach ($detailPenjualan as $data) {
             $array[] = [
                 'id' => $data->id,
-                'uid' => $data->penjualan->barang->uid,
-                'name' => $data->penjualan->barang->name,
+                'uid' => $data->penjualan->product->uid,
+                'name' => $data->penjualan->product->name,
                 'jumlah_barang' => $data->penjualan->jumlah_barang,
                 'total_harga' => $data->penjualan->total_harga,
-                'diskon' => $data->penjualan->barang->diskon
+                'diskon' => $data->penjualan->product->diskon
             ];
         }
 
@@ -41,8 +41,8 @@ class DetailPenjualanController extends BaseController
         foreach ($detailPenjualan as $data) {
             $array[] = [
                 'id' => $data->id,
-                'uid' => $data->penjualan->barang->uid,
-                'name' => $data->penjualan->barang->name,
+                'uid' => $data->penjualan->product->uid,
+                'name' => $data->penjualan->product->name,
                 'jumlah_barang' => $data->penjualan->jumlah_barang,
                 'total_harga' => $data->penjualan->total_harga
 
@@ -69,15 +69,15 @@ class DetailPenjualanController extends BaseController
             $total_item += 1;
             $total_barang += $data->penjualan->jumlah_barang;
             $total_harga += $data->penjualan->total_harga;
-            $total_diskon += $data->penjualan->barang->diskon;
+            $total_diskon += $data->penjualan->product->diskon;
 
             $array[] = [
                 'id' => $data->id,
-                'uid' => $data->penjualan->barang->uid,
-                'name' => $data->penjualan->barang->name,
+                'uid' => $data->penjualan->product->uid,
+                'name' => $data->penjualan->product->name,
                 'jumlah' => $data->penjualan->jumlah_barang,
                 'harga' => $data->penjualan->total_harga,
-                'diskon' => $data->penjualan->barang->diskon,
+                'diskon' => $data->penjualan->product->diskon,
                 'tanggal' => $data->penjualan->created_at,
 
             ];
@@ -103,10 +103,10 @@ class DetailPenjualanController extends BaseController
             foreach ($getdetailPenjualan as $data) {
                 $detailpenjualan = DetailPenjualan::find($data->id);
                 $penjualan = Penjualan::find($data->penjualan_id);
-                $barang = Barang::find($penjualan->barang_id);
+                $product = Product::find($penjualan->product_id);
                 $member = Member::where('user_id', request('member_id'))->first();
 
-                $bayarpenjualan['dibayar'] = $penjualan->total_harga - ($barang->diskon * $penjualan->jumlah_barang);
+                $bayarpenjualan['dibayar'] = $penjualan->total_harga - ($product->diskon * $penjualan->jumlah_barang);
                 $bayarpenjualan['member_id'] = request('member_id');
                 $bayarpenjualan['user_id'] = $user->id;
                 $penjualan->update($bayarpenjualan);
@@ -114,8 +114,8 @@ class DetailPenjualanController extends BaseController
                 $saldomember['saldo'] = $member->saldo - $bayarpenjualan['dibayar'];
                 $member->update($saldomember);
 
-                $stokbarang['stok'] = $barang->stok - $penjualan->jumlah_barang;
-                $barang->update($stokbarang);
+                $stokbarang['stok'] = $product->stok - $penjualan->jumlah_barang;
+                $product->update($stokbarang);
 
                 $statusdetailpenjualan['status'] = 1;
                 $detailpenjualan->update($statusdetailpenjualan);
@@ -136,7 +136,7 @@ class DetailPenjualanController extends BaseController
             foreach ($getdetailPenjualan as $data) {
                 $detailpenjualan = DetailPenjualan::find($data->id);
                 $penjualan = Penjualan::find($data->penjualan_id);
-                $barang = Barang::find($penjualan->barang_id);
+                $product = Product::find($penjualan->product_id);
 
                 $bayarpenjualan['dibayar'] = $dibayar ;
                 $bayarpenjualan['kembalian'] = $bayarpenjualan['dibayar'] - $data->penjualan->total_harga;
@@ -144,8 +144,8 @@ class DetailPenjualanController extends BaseController
                 $penjualan->update($bayarpenjualan);
                 $dibayar = $penjualan->kembalian;
 
-                $stokbarang['stok'] = $barang->stok - $penjualan->jumlah_barang;
-                $barang->update($stokbarang);
+                $stokbarang['stok'] = $product->stok - $penjualan->jumlah_barang;
+                $product->update($stokbarang);
 
                 $statusdetailpenjualan['status'] = 1;
                 $detailpenjualan->update($statusdetailpenjualan);
