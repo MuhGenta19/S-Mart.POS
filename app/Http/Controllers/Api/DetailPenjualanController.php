@@ -93,12 +93,12 @@ class DetailPenjualanController extends BaseController
             return $this->responseError('there is no payment');
         } elseif ($request->has('dibayar') && request('dibayar') < $total_harga) {
             $kurang = $total_harga - request('dibayar');
-            return $this->responseError('your payment is less ' . $kurang);
+            return $this->responseError('your payment is ' . $kurang . ' less');
         } elseif ($request->has('member_id') && $member == null) {
             return $this->responseError('member with ID ' . request('member_id') . ' not found');
         } elseif ($request->has('member_id') && $member->saldo < ($total_harga - $total_diskon)) {
             $kurang = ($total_harga - $total_diskon) - $member->saldo;
-            return $this->responseError('your payment is less ' . $kurang);
+            return $this->responseError('your payment is ' . $kurang . ' less');
         } elseif ($request->has('member_id')) {
             foreach ($getdetailPenjualan as $data) {
                 $detailpenjualan = DetailPenjualan::find($data->id);
