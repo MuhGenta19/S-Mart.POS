@@ -25,7 +25,6 @@ class DetailPenjualanController extends BaseController
                 'jumlah_barang' => $data->penjualan->jumlah_barang,
                 'total_harga' => $data->penjualan->total_harga,
                 'diskon' => $data->penjualan->barang->diskon
-
             ];
         }
 
@@ -78,7 +77,7 @@ class DetailPenjualanController extends BaseController
                 'name' => $data->penjualan->barang->name,
                 'jumlah' => $data->penjualan->jumlah_barang,
                 'harga' => $data->penjualan->total_harga,
-                // 'diskon' => $data->penjualan->barang->diskon,
+                'diskon' => $data->penjualan->barang->diskon,
                 'tanggal' => $data->penjualan->created_at,
 
             ];
@@ -144,7 +143,6 @@ class DetailPenjualanController extends BaseController
                 $bayarpenjualan['user_id'] = $user->id;
                 $penjualan->update($bayarpenjualan);
                 $dibayar = $penjualan->kembalian;
-
 
                 $stokbarang['stok'] = $barang->stok - $penjualan->jumlah_barang;
                 $barang->update($stokbarang);
