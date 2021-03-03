@@ -36,8 +36,13 @@ class PenjualanController extends BaseController
         if ($penjualan == []) {
             return $this->responseError(403, 'there is no penjualan data that has been paid');
         }
+
         $total_harga = Penjualan::where('dibayar', '=', 0)->sum('total_harga');
-        $penjualan['jumlah_harga'] = $total_harga;
+        $penjualan['grand_total'] = $total_harga;
+
+        $response = [
+
+        ];
 
         return $this->responseOk($penjualan);
     }
