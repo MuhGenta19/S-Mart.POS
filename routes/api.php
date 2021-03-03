@@ -80,7 +80,6 @@ Route::group(['middleware' => 'auth:api', 'namespace' => 'Api'], function () {
     //Penjualan
     Route::post('createPenjualan', 'PenjualanController@store')->middleware('role:admin|kasir'); //create penjualan
     Route::get('penjualanDibayar', 'PenjualanController@dibayar')->middleware('role:admin|pimpinan|kasir'); //read penjualan yg sudah dibayar
-    Route::get('penjualanBelumbayar', 'PenjualanController@belumbayar')->middleware('role:admin|pimpinan|kasir'); //read penjualan yg belum dibayar
     Route::get('getPenjualan/{id}', 'PenjualanController@show')->middleware('role:admin|pimpinan|kasir'); //read penjualan by id
     Route::post('updatePenjualan/{id}', 'PenjualanController@update')->middleware('role:admin|kasir'); //update penjualan
     Route::delete('deletePenjualan/{id}', 'PenjualanController@destroy')->middleware('role:admin|kasir'); //delete penjualan
