@@ -18,6 +18,7 @@ class DetailPenjualanController extends BaseController
         $detailPenjualan = DetailPenjualan::with('penjualan')->where('status', 0)->get();
         $array = array();
         foreach ($detailPenjualan as $data) {
+            $jumlah_barang += $data->penjualan->total_harga;
             $array[] = [
                 'id' => $data->id,
                 'uid' => $data->penjualan->product->uid,
@@ -27,6 +28,7 @@ class DetailPenjualanController extends BaseController
                 'diskon' => $data->penjualan->product->diskon
             ];
         }
+        $array['total_semua'] = $jumlah_barang;
 
         if ($array == []) {
             return $this->responseError('request product data is empty');
