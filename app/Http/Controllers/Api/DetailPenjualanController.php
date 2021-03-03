@@ -16,6 +16,7 @@ class DetailPenjualanController extends BaseController
     public function request()
     {
         $detailPenjualan = DetailPenjualan::with('penjualan')->where('status', 0)->get();
+        $jumlah_barang = 0;
         $array = array();
         foreach ($detailPenjualan as $data) {
             $jumlah_barang += $data->penjualan->total_harga;
@@ -27,6 +28,7 @@ class DetailPenjualanController extends BaseController
                 'total_harga' => $data->penjualan->total_harga,
                 'diskon' => $data->penjualan->product->diskon
             ];
+
         }
         $array['total_semua'] = $jumlah_barang;
 
