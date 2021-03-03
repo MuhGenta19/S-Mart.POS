@@ -29,7 +29,12 @@ class DetailPenjualanController extends BaseController
                 'diskon' => $data->penjualan->product->diskon
             ];
         }
-        $array['total_semua'] = $jumlah_barang;
+
+        $response = [
+            'keranjang' => $array,
+            'total_semua' => $jumlah_barang
+        ];
+        // $array['total_semua'] = $jumlah_barang;
 
         if ($array == []) {
             return $this->responseError('request product data is empty');
