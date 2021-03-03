@@ -28,7 +28,6 @@ class DetailPenjualanController extends BaseController
                 'total_harga' => $data->penjualan->total_harga,
                 'diskon' => $data->penjualan->product->diskon
             ];
-
         }
         $array['total_semua'] = $jumlah_barang;
 
