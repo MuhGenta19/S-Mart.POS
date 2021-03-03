@@ -39,7 +39,7 @@ class DetailPenjualanController extends BaseController
         if ($array == []) {
             return $this->responseError('request product data is empty');
         }
-        return $this->responseOk($array, 200, 'requested products');
+        return $this->responseOk($response, 200, 'requested products');
     }
 
     public function dibeli()
