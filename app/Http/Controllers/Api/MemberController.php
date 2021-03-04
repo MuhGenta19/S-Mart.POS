@@ -76,6 +76,7 @@ class MemberController extends BaseController
 
         $user = User::create($params);
         $user->assignRole('member');
+        $data['saldo'] = 0;
         $data['user_id'] = $user->id;
         $member = Member::create($data);
 
