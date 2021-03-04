@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Api\BaseController;
+use App\Member;
 use App\User;
 use GuzzleHttp\Client;
 use Illuminate\Support\Facades\Auth;
@@ -66,6 +67,10 @@ class UserController extends BaseController
         if ($user = User::create($params)) {
             $user->assignRole('member');
             $token = $user->createToken('pos')->accessToken;
+
+            $data['user_id'] = $user->id;
+            $data['saldo'] = 0;
+            $member = Member::create($data);
 
             $response = [
                 'token' => $token,
