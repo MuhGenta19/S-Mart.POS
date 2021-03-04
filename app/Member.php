@@ -4,6 +4,7 @@ namespace App;
 
 use App\Traits\FormatDate;
 use Illuminate\Database\Eloquent\Model;
+use App\User;
 
 class Member extends Model
 {
