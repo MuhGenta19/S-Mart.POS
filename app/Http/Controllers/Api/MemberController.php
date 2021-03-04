@@ -45,7 +45,7 @@ class MemberController extends BaseController
         ]);
 
         if ($validator->fails()) {
-            return $this->responseError(422, $validator->errors(), 'failed to add member');
+            return $this->responseError('failed to add member', 422, $validator->errors());
         }
 
         if ($request->photo) {
