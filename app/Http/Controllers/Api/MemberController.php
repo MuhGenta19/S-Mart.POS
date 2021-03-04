@@ -19,12 +19,12 @@ class MemberController extends BaseController
      */
     public function index()
     {
-        $user = User::role('member')->get();
-        $user->load('member', 'roles');
-        if (empty($user)) {
+        $member = Member::get();
+        $member->load('users');
+        if (empty($member)) {
             return $this->responseError('member empty', 403);
         }
-        return $this->responseOk($user);
+        return $this->responseOk($member);
     }
 
     /**
@@ -196,7 +196,7 @@ class MemberController extends BaseController
     public function topup(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
-            // 'user_id' => 'required|integer',
+            'user_id' => 'required|integer',
             'saldo' => 'required|integer',
         ]);
 
