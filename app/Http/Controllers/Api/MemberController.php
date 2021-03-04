@@ -20,7 +20,7 @@ class MemberController extends BaseController
     public function index()
     {
         $member = Member::get();
-        $member->load('users');
+        $member->load('user');
         if (empty($member)) {
             return $this->responseError('member empty', 403);
         }
