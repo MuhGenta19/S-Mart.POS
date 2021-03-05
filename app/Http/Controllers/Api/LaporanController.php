@@ -13,12 +13,12 @@ class LaporanController extends BaseController
 {
     public function index(Request $request)
     {
-        $awal = Carbon::today('Asia/Jakarta')->subMonth(1)->format('Y-m-d');
-        $akhir = Carbon::today('Asia/Jakarta')->format('Y-m-d');
+        $first = Carbon::today('Asia/Jakarta')->subMonth(1)->format('Y-m-d');
+        $last = Carbon::today('Asia/Jakarta')->format('Y-m-d');
 
-        if (request('awal') && request('akhir')) {
-            $awal = request('awal');
-            $akhir = request('akhir');
+        if (request('first') && request('last')) {
+            $first = request('first');
+            $last = request('last');
         }
 
         $no = 0;
@@ -28,14 +28,14 @@ class LaporanController extends BaseController
         $total_penjualan = 0;
         $total_pengeluaran = 0;
         $total_pendapatan = 0;
-        while (strtotime($awal) <= strtotime($akhir)) {
-            $tanggal = $awal;
-            $awal = date('Y-m-d', strtotime("+1 day", strtotime($awal)));
+        while (strtotime($first) <= strtotime($last)) {
+            $tanggal = $first;
+            $first = date('Y-m-d', strtotime("+1 day", strtotime($first)));
 
             $pembelian  = Pembelian::where('created_at', 'LIKE', "$tanggal%")->sum('total_biaya');
             $dibayar = Penjualan::where('created_at', 'LIKE', "$tanggal%")->sum('dibayar');
             $kembalian = Penjualan::where('created_at', 'LIKE', "$tanggal%")->sum('kembalian');
-            $pengeluaran = Pengeluaran::where('created_at', 'LIKE', "$tanggal%")->sum('biaya');
+            $pengeluaran = Pengeluaran::where('created_at', 'LIKE', "$tanggal%")->sum('nominal');
             $penjualan = $dibayar - $kembalian;
             $pendapatan = $penjualan - $pembelian  - $pengeluaran;
 
