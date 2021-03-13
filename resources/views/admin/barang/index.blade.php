@@ -135,6 +135,7 @@
                                 <td>{{ $product->uid }}</td>
                                 <td>{{ number_format($product->harga_beli, 0, ',', '.') }}</td>
                                 <td>{{ number_format($product->harga_jual, 0, ',', '.') }}</td>
+                                {{dd($product)}}
                                 <td>{{ $product->category->name }}</td>
                                 <td>{{ $product->merek }}</td>
                                 <td>{{ $product->stok }}</td>
