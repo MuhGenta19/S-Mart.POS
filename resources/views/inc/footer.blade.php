@@ -1,7 +1,7 @@
 @if ($page_name != 'coming_soon' && $page_name != 'contact_us' && $page_name != 'error404' && $page_name != 'error500' && $page_name != 'error503' && $page_name != 'faq' && $page_name != 'helpdesk' && $page_name != 'maintenence' && $page_name != 'privacy' && $page_name != 'auth_boxed' && $page_name != 'auth_default')
     <!--  BEGIN SIDEBAR  -->
     {{-- <div class="sidebar-wrapper sidebar-theme">
-                
+
         <nav id="sidebar">
 
             <ul class="navbar-nav theme-brand flex-row  text-center">
@@ -138,7 +138,7 @@
                             </li>
                             <li class="{{ ($page_name === 'modal') ? 'active' : '' }}">
                                 <a href="/components/modals"> Modals </a>
-                            </li>                            
+                            </li>
                             <li class="{{ ($page_name === 'cards') ? 'active' : '' }}">
                                 <a href="/components/cards"> Cards </a>
                             </li>
@@ -203,7 +203,7 @@
                             </li>
                             <li class="{{ ($page_name === 'breadcrumbs') ? 'active' : '' }}">
                                 <a href="/elements/breadcrumbs"> Breadcrumbs </a>
-                            </li>                            
+                            </li>
                             <li class="{{ ($page_name === 'buttons') ? 'active' : '' }}">
                                 <a href="/elements/buttons"> Buttons </a>
                             </li>
@@ -364,10 +364,10 @@
                             </li>
                             <li class="{{ ($page_name === 'maxlength') ? 'active' : '' }}">
                                 <a href="/forms/maxlength"> Maxlength </a>
-                            </li>                          
+                            </li>
                             <li class="{{ ($page_name === 'checkbox_radio') ? 'active' : '' }}">
                                 <a href="/forms/checkbox_radio"> Checkbox &amp; Radio </a>
-                            </li>                            
+                            </li>
                             <li class="{{ ($page_name === 'switches') ? 'active' : '' }}">
                                 <a href="/forms/switches"> Switches </a>
                             </li>
@@ -394,10 +394,10 @@
                             </li>
                         </ul>
                     </li>
-                    
+
                     <li class="menu menu-heading">
                         <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-circle"><circle cx="12" cy="12" r="10"></circle></svg><span>USER AND PAGES</span></div>
-                    </li>                    
+                    </li>
 
                     <li class="menu {{ ($category_name === 'users') ? 'active' : '' }}">
                         <a href="#users" data-toggle="collapse" aria-expanded="{{ ($category_name === 'users') ? 'true' : 'false' }}" class="dropdown-toggle">
@@ -450,7 +450,7 @@
                             </li>
                             <li class="{{ ($page_name === 'dashboard') ? 'active' : '' }}">
                                 <a href="#pages-error" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Error <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="collapse list-unstyled sub-submenu" id="pages-error" data-parent="#pages"> 
+                                <ul class="collapse list-unstyled sub-submenu" id="pages-error" data-parent="#pages">
                                     <li class="{{ ($page_name === 'error404') ? 'active' : '' }}">
                                         <a href="/pages/error_404"> 404 </a>
                                     </li>
@@ -599,7 +599,7 @@
                             </li>
                             <li>
                                 <a href="javascript:void(0);"> Submenu 2 </a>
-                            </li>                           
+                            </li>
                         </ul>
                     </li>
 
@@ -619,7 +619,7 @@
                             </li>
                             <li>
                                 <a href="#sm2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"> Submenu 2 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg> </a>
-                                <ul class="collapse list-unstyled sub-submenu" id="sm2" data-parent="#submenu2"> 
+                                <ul class="collapse list-unstyled sub-submenu" id="sm2" data-parent="#submenu2">
                                     <li>
                                         <a href="javascript:void(0);"> Sub-Submenu 1 </a>
                                     </li>
@@ -659,14 +659,14 @@
                             </li>
                         </ul>
                     </li>
-                    
-                @endif
-                
-                
 
-                
+                @endif
+
+
+
+
             </ul>
-            
+
         </nav>
 
     </div> --}}
@@ -676,11 +676,11 @@
     <!--  BEGIN FOOTER  -->
     <div class="footer-wrapper">
         <div class="footer-section f-section-1">
-            <p class="">Copyright © 2020 <a target="_blank" href="https://designreset.com">DesignReset</a>, All rights reserved.</p>
+            <p class="">Copyright © 2021 <a target="_blank" href="https://designreset.com">S.Mart</a>, All rights reserved.</p>
         </div>
-        <div class="footer-section f-section-2">
+        {{-- <div class="footer-section f-section-2">
             <p class="">Coded with <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg></p>
-        </div>
+        </div> --}}
     </div>
     <!--  END FOOTER  -->
 
