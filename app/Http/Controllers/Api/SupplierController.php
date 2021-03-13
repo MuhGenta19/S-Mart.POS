@@ -16,7 +16,7 @@ class SupplierController extends BaseController
      */
     public function index()
     {
-        $supplier = Supplier::get();
+        $supplier = Supplier::latest()->get();
 
         if (empty($supplier)) {
             return $this->responseError('Suppliers does not exist', 403);

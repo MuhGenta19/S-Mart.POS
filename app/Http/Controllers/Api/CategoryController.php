@@ -16,7 +16,7 @@ class CategoryController extends BaseController
      */
     public function index()
     {
-        $Category = Category::get();
+        $Category = Category::latest()->get();
 
         if (empty($Category)) {
             return $this->responseError(403, 'categories empty');

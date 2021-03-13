@@ -91,7 +91,7 @@ class UserController extends BaseController
 
     public function index()
     {
-        $user = User::get();
+        $user = User::latest()->get();
 
         if (empty($user)) {
             return $this->responseError(403, 'users empty');

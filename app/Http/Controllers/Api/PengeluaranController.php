@@ -16,7 +16,7 @@ class PengeluaranController extends BaseController
      */
     public function index()
     {
-        $pengeluaran = Pengeluaran::get();
+        $pengeluaran = Pengeluaran::latest()->get();
 
         if ($pengeluaran == []) {
             return $this->responseError('there is no pengeluaran yet');
