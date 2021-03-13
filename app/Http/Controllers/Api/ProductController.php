@@ -30,7 +30,7 @@ class ProductController extends BaseController
      */
     public function index()
     {
-        $product = Product::orderBy('DESC')->get();
+        $product = Product::latest()->get();
         $product->load('category');
 
         if (empty($product)) {
