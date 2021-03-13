@@ -12,7 +12,7 @@ class BarangController extends Controller
 {
     public function index()
     {
-        $products = Product::get();
+        $products = Product::with('category')->get();
         $categories = Category::get();
 
         $total_barang = Product::count();
