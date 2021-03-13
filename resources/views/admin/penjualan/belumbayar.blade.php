@@ -19,13 +19,13 @@
                                 <div class="">
                                     <h1 class="s-counter1 s-counter">{{ $total_keranjang }}</h1>
                                 </div>
-                                <p class="s-counter-text">Total Keranjang</p>
+                                <p class="s-counter-text">Total Produk</p>
                             </div>
                             <div class="counter-container">
                                 <div class="">
                                     <h1 class="s-counter2 s-counter">{{ $total_barang }}</h1>
                                 </div>
-                                <p class="s-counter-text">Total Barang</p>
+                                <p class="s-counter-text">Total Kuantitas</p>
                             </div>
                             <div class="counter-container">
                                 <div class="">
@@ -37,14 +37,14 @@
                                 <div class="">
                                     <h1 class="s-counter4 s-counter">{{ $total_diskon }}</h1>
                                 </div>
-                                <p class="s-counter-text">Total Diskon</p>
+                                <p class="s-counter-text">Total Discount</p>
                             </div>
                         </div>
                         @role('kasir|admin')
                         <button type="button" class="btn btn-outline-primary btn-rounded mb-2" data-toggle="modal"
-                            data-target="#confirmbayar">Konfirmasi bayar langsung</button>
+                            data-target="#confirmbayar">Confirm Payment With Cash</button>
                         <button type="button" class="btn btn-outline-primary btn-rounded mb-2" data-toggle="modal"
-                            data-target="#confirmmember">Konfirmasi bayar pakai saldo member</button>
+                            data-target="#confirmmember">Confirm Payment With Balance</button>
                         @endrole
                     </div>
                     @role('kasir|admin')
@@ -53,21 +53,20 @@
                             @csrf
                             <div class="form-row mb-4">
                                 <div class="form-group col-md-6">
-                                    <label for="barang_id">Barang</label>
-                                    <select id="barang_id" name="barang_id" class="form-control">
-                                        @foreach ($barangs as $barang)
-                                        <option value="{{ $barang->id }}">{{ $barang->nama }}</option>
+                                    <label for="product_id">Produk</label>
+                                    <select id="product_id" name="product_id" class="form-control">
+                                        @foreach ($products as $product)
+                                        <option value="{{ $product->id }}">{{ $product->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="jumlah_barang">Jumlah Barang</label>
+                                    <label for="jumlah_barang">Kuantitas</label>
                                     <input type="number" name="jumlah_barang" class="form-control" id="jumlah_barang"
                                         value="{{ old('jumlah_barang') }}">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Tambah
-                                Keranjang</button>
+                            <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Add To Cart</button>
                         </form>
                     </div>
                     @endrole
@@ -81,12 +80,12 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Barang</th>
-                                <th>Jumlah Barang</th>
+                                <th>Produk</th>
+                                <th>Kuantitas</th>
                                 <th>Total Harga</th>
                                 <th>Tanggal</th>
                                 @role('admin|kasir')
-                                <th class="text-center">Aksi</th>
+                                <th class="text-center">Action</th>
                                 @endrole
                             </tr>
                         </thead>
@@ -95,7 +94,7 @@
                             @foreach ($penjualans as $penjualan)
                             <tr>
                                 <td>{{ $no ++ }}</td>
-                                <td>{{ $penjualan->barang->nama }}</td>
+                                <td>{{ $penjualan->product->name }}</td>
                                 <td>{{ $penjualan->jumlah_barang }}</td>
                                 <td>{{ $penjualan->total_harga }}</td>
                                 <td>{{ $penjualan->created_at }}</td>
@@ -103,7 +102,7 @@
                                 <td class="text-center">
                                     <div class="btn-group-vertical" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm"
-                                            data-toggle="modal" data-target="#update-{{$penjualan->id}}"> Ubah </button>
+                                            data-toggle="modal" data-target="#update-{{$penjualan->id}}"> Edit </button>
                                         <button type="button" class="btn btn-outline-danger btn-rounded btn-sm"
                                             data-toggle="modal" data-target="#delete-{{$penjualan->id}}"> Delete
                                         </button>

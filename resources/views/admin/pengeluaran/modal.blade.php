@@ -6,7 +6,7 @@
             <form action="{{ route('pengeluaran.update', $pengeluaran) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title">Ubah pengeluaran</h5>
+                    <h5 class="modal-title">Edit pengeluaran</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -18,19 +18,19 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group mb-4">
-                        <label for="tipe">Tipe</label>
-                        <input type="text" name="tipe" class="form-control" id="tipe"
-                            value="{{ $pengeluaran->tipe ?? old('tipe') }}">
+                        <label for="jenis_pengeluaran">Jenis Pengeluaran</label>
+                        <input type="text" name="jenis_pengeluaran" class="form-control" id="jenis_pengeluaran"
+                            value="{{ $pengeluaran->jenis_pengeluaran ?? old('jenis_pengeluaran') }}">
                     </div>
                     <div class="form-group mb-4">
-                        <label for="biaya">biaya</label>
-                        <input type="number" name="biaya" class="form-control" id="biaya"
-                            value="{{ $pengeluaran->biaya ?? old('biaya') }}">
+                        <label for="nominal">Biaya</label>
+                        <input type="number" name="nominal" class="form-control" id="nominal"
+                            value="{{ $pengeluaran->nominal ?? old('nominal') }}">
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Batal</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+                    <button type="submit" class="btn btn-primary">Done</button>
                 </div>
             </form>
         </div>
@@ -50,14 +50,14 @@
                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                     </svg>
                 </div>
-                <p class="modal-text">Apakah anda yakin ingin menghapus ini?.</p>
+                <p class="modal-text">Are you sure you want to delete this pengeluaran?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Tidak</button>
+                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Nope</button>
                 <form method="POST" action="{{ route('pengeluaran.destroy', $pengeluaran) }}">
                     @csrf
                     @method("DELETE")
-                    <button type="submit" class="btn btn-primary">Ya</button>
+                    <button type="submit" class="btn btn-primary">Yeah</button>
                 </form>
             </div>
         </div>

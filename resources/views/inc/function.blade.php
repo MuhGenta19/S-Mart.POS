@@ -7,10 +7,10 @@ function setTitle($page_name) {
 
 // echo $page_name;
 
-$admin_name = '| Pospro Mart - Point Of Sales';
+$admin_name = '| S.Mart - POS';
 
 if ($page_name === 'admin') :
-echo 'Pospro Mart - Point Of Sales';
+echo 'S.Mart - POS';
 //user
 elseif ($page_name === 'index_user') :
 echo 'Data User ' . $admin_name;
@@ -115,7 +115,7 @@ echo 'Timeline ' . $admin_name;
 
 // Drag And Drop
 elseif ($page_name === 'drag_n_drop') :
-echo 'Dragula Drag and Drop ' . $admin_name;
+echo 'Drag and Drop ' . $admin_name;
 
 // Elements
 elseif ($page_name === 'alerts') :

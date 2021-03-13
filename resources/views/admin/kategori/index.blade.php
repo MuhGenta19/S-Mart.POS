@@ -23,7 +23,7 @@
 
                             <div class="counter-container">
                                 <div class="">
-                                    <h1 class="s-counter1 s-counter">{{ $total_kategori }}</h1>
+                                    <h1 class="s-counter1 s-counter">{{ $total_category }}</h1>
                                 </div>
                                 <p class="s-counter-text">Total Kategori</p>
                             </div>
@@ -33,11 +33,10 @@
                         <form action="{{ route('kategori.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mb-4">
-                                <label for="nama">Nama</label>
-                                <input type="text" name="nama" class="form-control" id="nama" placeholder="{{ old('nama') }}">
+                                <label for="name">Nama Kategori</label>
+                                <input type="text" name="name" class="form-control" id="name" placeholder="{{ old('name') }}">
                             </div>
-                            <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Tambah
-                                Kategori</button>
+                            <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Add Catgeory</button>
                         </form>
                         @endrole
                     </div>
@@ -50,24 +49,24 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Nama</th>
+                                <th>Nama Kategori </th>
                                 @role('admin|staff')
-                                <th class="text-center">Aksi</th>
+                                <th class="text-center">Action</th>
                                 @endrole
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($kategoris as $kategori)
+                            @foreach ($categories as $category)
                             <tr>
-                                <td>{{ $kategori->id }}</td>
-                                <td>{{ $kategori->nama }}</td>
+                                <td>{{ $category->id }}</td>
+                                <td>{{ $category->name }}</td>
                                 @role('admin|staff')
                                 <td class="text-center">
                                     <div class="btn-group-vertical" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm"
-                                            data-toggle="modal" data-target="#update-{{$kategori->id}}"> Ubah </button>
+                                            data-toggle="modal" data-target="#update-{{$category->id}}"> Edit </button>
                                         <button type="button" class="btn btn-outline-danger btn-rounded btn-sm"
-                                            data-toggle="modal" data-target="#delete-{{$kategori->id}}"> Delete
+                                            data-toggle="modal" data-target="#delete-{{$category->id}}"> Delete
                                         </button>
                                     </div>
                                 </td>

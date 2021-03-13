@@ -42,12 +42,11 @@
                                 <label for="user_id">Nama</label>
                                 <select id="user_id" name="user_id" class="form-control">
                                     @foreach ($users as $user)
-                                    <option value="{{ $user->id }}">{{ $user->nama }}</option>
+                                    <option value="{{ $user->id }}">{{ $user->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Tambah
-                                Member</button>
+                            <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Add Member</button>
                         </form>
                         @endrole
                     </div>
@@ -64,7 +63,7 @@
                             <th>Kode Member</th>
                             <th>Saldo</th>
                             @role('admin|kasir')
-                            <th class="text-center">Aksi</th>
+                            <th class="text-center">Action</th>
                             @endrole
                         </tr>
                     </thead>
@@ -72,14 +71,14 @@
                         @foreach ($members as $member)
                         <tr>
                             <td>{{ $member->id }}</td>
-                            <td>{{ $member->user->nama }}</td>
+                            <td>{{ $member->user->name }}</td>
                             <td>{{ $member->user->kode_member }}</td>
                             <td>{{ $member->saldo }}</td>
                             @role('admin|kasir')
                             <td class="text-center">
                                 <div class="btn-group-vertical" role="group" aria-label="Basic example">
                                     <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm"
-                                        data-toggle="modal" data-target="#topup-{{$member->id}}"> TopUp </button>
+                                        data-toggle="modal" data-target="#topup-{{$member->id}}"> Top Up </button>
                                     <button type="button" class="btn btn-outline-danger btn-rounded btn-sm"
                                         data-toggle="modal" data-target="#delete-{{$member->id}}"> Delete
                                     </button>

@@ -6,7 +6,7 @@
             <form action="{{ route('penjualan.update', $penjualan) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title">Ubah Keranjang</h5>
+                    <h5 class="modal-title">Edit Keranjang</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -18,21 +18,21 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group mb-4">
-                        <label for="barang_id">Barang</label>
-                        <select id="barang_id" name="barang_id" class="form-control">
-                            @foreach ($barangs as $barang)
-                            <option value="{{ $barang->id }}">{{ $barang->nama }}</option>
+                        <label for="product_id">Produk</label>
+                        <select id="product_id" name="product_id" class="form-control">
+                            @foreach ($products as $product)
+                            <option value="{{ $product->id }}">{{ $product->name }}</option>
                             @endforeach
                         </select>
                     </div>
                     <div class="form-group mb-4">
-                        <label for="jumlah_barang">Jumlah Barang</label>
+                        <label for="jumlah_barang">Kuantitas</label>
                         <input type="number" name="jumlah_barang" class="form-control" id="jumlah_barang" value="{{ $penjualan->jumlah_barang ?? old('jumlah_barang') }}">
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Batal</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+                    <button type="submit" class="btn btn-primary">Done</button>
                 </div>
             </form>
         </div>
@@ -52,14 +52,14 @@
                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                     </svg>
                 </div>
-                <p class="modal-text">Apakah anda yakin ingin menghapus ini?.</p>
+                <p class="modal-text">Are you sure you want to delete this cart?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Tidak</button>
+                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Nope</button>
                 <form method="POST" action="{{ route('penjualan.destroy', $penjualan) }}">
                     @csrf
                     @method("DELETE")
-                    <button type="submit" class="btn btn-primary">Ya</button>
+                    <button type="submit" class="btn btn-primary">Yeah</button>
                 </form>
             </div>
         </div>
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Batal</button>
+                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Cancel</button>
                     <button type="submit" class="btn btn-primary">Bayar</button>
                 </div>
             </form>
@@ -121,13 +121,13 @@
                         <select id="member_id" name="member_id" class="form-control">
                             <option>--pilih</option>
                             @foreach ($members as $member)
-                            <option value="{{ $member->id }}">{{ $member->user->nama }}</option>
+                            <option value="{{ $member->id }}">{{ $member->user->name }}</option>
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Batal</button>
+                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Cancel</button>
                     <button type="submit" class="btn btn-primary">Bayar pakai saldo member</button>
                 </div>
             </form>

@@ -34,23 +34,22 @@
                             @csrf
                             <div class="form-row mb-4">
                                 <div class="form-group col-md-6">
-                                    <label for="nama">Nama</label>
-                                    <input type="text" name="nama" class="form-control" id="nama"
-                                        value="{{ old('nama') }}">
+                                    <label for="name">Nama</label>
+                                    <input type="text" name="name" class="form-control" id="name"
+                                        value="{{ old('name') }}">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="no_hp">No Hp</label>
-                                    <input type="number" name="no_hp" class="form-control" id="no_hp"
-                                        value="{{ old('no_hp') }}">
+                                    <label for="telepon">No Telepon</label>
+                                    <input type="number" name="telepon" class="form-control" id="telepon"
+                                        value="{{ old('telepon') }}">
                                 </div>
                             </div>
                             <div class="form-group mb-4">
-                                <label for="alamat">alamat</label>
+                                <label for="alamat">Alamat</label>
                                 <input type="text" name="alamat" class="form-control" id="alamat"
                                     value="{{ old('alamat') }}">
                             </div>
-                            <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Tambah
-                                Supplier</button>
+                            <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Add Supplier</button>
                         </form>
                         @endrole
                     </div>
@@ -64,9 +63,9 @@
                                 <th>Id</th>
                                 <th>Nama</th>
                                 <th>Alamat</th>
-                                <th>No Hp</th>
+                                <th>No Telepon</th>
                                 @role('admin|staff')
-                                <th class="text-center">Aksi</th>
+                                <th class="text-center">Action</th>
                                 @endrole
                             </tr>
                         </thead>
@@ -74,14 +73,14 @@
                             @foreach ($suppliers as $supplier)
                             <tr>
                                 <td>{{ $supplier->id }}</td>
-                                <td>{{ $supplier->nama }}</td>
+                                <td>{{ $supplier->name }}</td>
                                 <td>{{ $supplier->alamat }}</td>
-                                <td>{{ $supplier->no_hp }}</td>
+                                <td>{{ $supplier->telepon }}</td>
                                 @role('admin|staff')
                                 <td class="text-center">
                                     <div class="btn-group-vertical" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm"
-                                            data-toggle="modal" data-target="#update-{{$supplier->id}}"> Ubah </button>
+                                            data-toggle="modal" data-target="#update-{{$supplier->id}}"> Edit </button>
                                         <button type="button" class="btn btn-outline-danger btn-rounded btn-sm"
                                             data-toggle="modal" data-target="#delete-{{$supplier->id}}"> Delete
                                         </button>

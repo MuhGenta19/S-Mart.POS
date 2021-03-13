@@ -30,7 +30,7 @@
                                 <div class="">
                                     <h1 class="s-counter2 s-counter">{{ $total_barang }}</h1>
                                 </div>
-                                <p class="s-counter-text">Total Barang</p>
+                                <p class="s-counter-text">Total Kuantitas</p>
                             </div>
                             <div class="counter-container">
                                 <div class="">
@@ -48,8 +48,8 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Barang</th>
-                                <th>Jumlah Barang</th>
+                                <th>Produk</th>
+                                <th>Kuantitas</th>
                                 <th>Total Harga</th>
                                 <th>Dibayar</th>
                                 <th>Kembalian</th>
@@ -63,14 +63,14 @@
                             @foreach ($penjualans as $penjualan)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $penjualan->barang->nama }}</td>
+                                <td>{{ $penjualan->product->name }}</td>
                                 <td>{{ $penjualan->jumlah_barang }}</td>
                                 <td>{{ $penjualan->total_harga }}</td>
                                 <td>{{ $penjualan->dibayar }}</td>
                                 <td>{{ $penjualan->kembalian }}</td>
-                                <td>{{ $penjualan->barang->diskon }}</td>
-                                <td>{{ !empty($penjualan->member) ? $penjualan->member->user->nama:' '}}</td>
-                                <td>{{ !empty($penjualan->user) ? $penjualan->user->nama:'' }}</td>
+                                <td>{{ $penjualan->product->diskon }}</td>
+                                <td>{{ !empty($penjualan->member) ? $penjualan->member->user->name:' '}}</td>
+                                <td>{{ !empty($penjualan->user) ? $penjualan->user->name:'' }}</td>
                                 <td>{{ $penjualan->created_at }}</td>
                             </tr>
                             @endforeach

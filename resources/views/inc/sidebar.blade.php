@@ -10,8 +10,8 @@ $page_name != 'privacy' && $page_name != 'auth_boxed' && $page_name != 'auth_def
             <figure class="user-cover-image"> <img src="{{asset('img/slide.png')}}" width="255"></figure>
 
             <div class="user-info">
-                <h6 class="">{{ auth()->user()->nama }}</h6>
-                <img src="{{ auth()->user()->foto }}" alt="avatar">
+                <h6 class="">{{ auth()->user()->name }}</h6>
+                <img src="{{ auth()->user()->photo }}" alt="avatar">
                 {{-- <p class="">{{ auth()->user()->getRoleNames() }}</p> --}}
             </div>
         </div>
@@ -246,7 +246,7 @@ $page_name != 'privacy' && $page_name != 'auth_boxed' && $page_name != 'auth_def
                                 <polyline points="2 17 12 22 22 17"></polyline>
                                 <polyline points="2 12 12 17 22 12"></polyline>
                             </svg>
-                            <span>Kategori</span>
+                            <span>kategori</span>
                         </div>
                     </div>
                 </a>
@@ -265,7 +265,7 @@ $page_name != 'privacy' && $page_name != 'auth_boxed' && $page_name != 'auth_def
                                 <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
                                 <line x1="12" y1="22.08" x2="12" y2="12"></line>
                             </svg>
-                            <span>Barang</span>
+                            <span>Produk</span>
                         </div>
                     </div>
                 </a>

@@ -31,13 +31,13 @@
                                 <div class="">
                                     <h1 class="s-counter2 s-counter">{{ $total_barang }}</h1>
                                 </div>
-                                <p class="s-counter-text">Total Barang</p>
+                                <p class="s-counter-text">Total Produk</p>
                             </div>
                             <div class="counter-container">
                                 <div class="">
                                     <h1 class="s-counter3 s-counter">{{ $total_biaya }}</h1>
                                 </div>
-                                <p class="s-counter-text">Total Biaya</p>
+                                <p class="s-counter-text">Total Harga</p>
                             </div>
                         </div>
 
@@ -49,33 +49,32 @@
                                     <label for="supplier_id">Supplier</label>
                                     <select id="supplier_id" name="supplier_id" class="form-control">
                                         @foreach ($suppliers as $supplier)
-                                        <option value="{{ $supplier->id }}">{{ $supplier->nama }}</option>
+                                        <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="barang_id">Barang</label>
-                                    <select id="barang_id" name="barang_id" class="form-control">
-                                        @foreach ($barangs as $barang)
-                                        <option value="{{ $barang->id }}">{{ $barang->nama }}</option>
+                                    <label for="product_id">Produk</label>
+                                    <select id="product_id" name="product_id" class="form-control">
+                                        @foreach ($products as $product)
+                                        <option value="{{ $product->id }}">{{ $product->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
                             <div class="form-row mb-4">
                                 <div class="form-group col-md-6">
-                                    <label for="jumlah">Jumlah</label>
+                                    <label for="jumlah">Jumlah Produk</label>
                                     <input type="number" name="jumlah" class="form-control" id="jumlah"
                                         value="{{ old('jumlah') }}">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="total_biaya">Total Biaya</label>
+                                    <label for="total_biaya">Total Harga</label>
                                     <input type="number" name="total_biaya" class="form-control" id="total_biaya"
                                         value="{{ old('total_biaya') }}">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Tambah
-                                Pembelian</button>
+                            <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Add Pembelian</button>
                         </form>
                         @endrole
                     </div>
@@ -88,12 +87,12 @@
                             <tr>
                                 <th>Id</th>
                                 <th>Supplier</th>
-                                <th>Barang</th>
-                                <th>Jumlah</th>
-                                <th>Total Biaya</th>
+                                <th>Produk</th>
+                                <th>Jumlah Barang</th>
+                                <th>Total Harga</th>
                                 <th>Tanggal</th>
                                 @role('admin|staff')
-                                <th class="text-center">Aksi</th>
+                                <th class="text-center">Action</th>
                                 @endrole
                             </tr>
                         </thead>
@@ -101,16 +100,16 @@
                             @foreach ($pembelians as $pembelian)
                             <tr>
                                 <td>{{ $pembelian->id }}</td>
-                                <td>{{ $pembelian->supplier->nama }}</td>
-                                <td>{{ $pembelian->barang->nama }}</td>
-                                <td>{{ $pembelian->jumlah }}</td>
+                                <td>{{ $pembelian->supplier->name }}</td>
+                                <td>{{ $pembelian->product->name }}</td>
+                                <td>{{ $pembelian->total_barang }}</td>
                                 <td>{{ $pembelian->total_biaya }}</td>
                                 <td>{{ $pembelian->created_at }}</td>
                                 @role('admin|staff')
                                 <td class="text-center">
                                     <div class="btn-group-vertical" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm"
-                                            data-toggle="modal" data-target="#update-{{$pembelian->id}}"> Ubah </button>
+                                            data-toggle="modal" data-target="#update-{{$pembelian->id}}"> Edit </button>
                                         <button type="button" class="btn btn-outline-danger btn-rounded btn-sm"
                                             data-toggle="modal" data-target="#delete-{{$pembelian->id}}"> Delete
                                         </button>

@@ -14,7 +14,7 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Nama</th>
+                                <th>Name</th>
                                 <th>Absent</th>
                             </tr>
                         </thead>
@@ -22,7 +22,7 @@
                             @foreach($absents->unique('created_at') as $absent)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $absent->user->nama }}</td>
+                                <td>{{ $absent->user->name }}</td>
                                 <td>{{ $absent->created_at }}</td>
                             </tr>
                             @endforeach

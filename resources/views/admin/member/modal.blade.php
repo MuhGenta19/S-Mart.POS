@@ -18,13 +18,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group mb-4">
-                        <label for="Saldo">saldo</label>
+                        <label for="Saldo">Masukkan Nominal</label>
                         <input type="number" name="saldo" class="form-control" id="saldo"
                             value="{{ old('saldo') }}">
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Batal</button>
+                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
                     <button type="submit" class="btn btn-primary">Top Up</button>
                 </div>
             </form>
@@ -45,14 +45,14 @@
                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                     </svg>
                 </div>
-                <p class="modal-text">Apakah anda yakin ingin menghapus ini?.</p>
+                <p class="modal-text">Are you sure you want to delete this member?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Tidak</button>
+                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Nope</button>
                 <form method="POST" action="{{ route('member.destroy', $member) }}">
                     @csrf
                     @method("DELETE")
-                    <button type="submit" class="btn btn-primary">Ya</button>
+                    <button type="submit" class="btn btn-primary">Yeah</button>
                 </form>
             </div>
         </div>

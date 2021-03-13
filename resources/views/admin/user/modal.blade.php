@@ -5,7 +5,7 @@
             <form action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title">Tambah User</h5>
+                    <h5 class="modal-title">Add User</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -30,14 +30,14 @@
                     </div>
                     <div class="form-row mb-4">
                         <div class="form-group col-md-6">
-                            <label for="nama">Nama</label>
-                            <input type="text" name="nama" class="form-control" id="nama"
-                                value="{{ old('nama') }}">
+                            <label for="name">Nama</label>
+                            <input type="text" name="name" class="form-control" id="name"
+                                value="{{ old('name') }}">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="no_hp">No Hp</label>
-                            <input type="number" name="no_hp" class="form-control" id="no_hp"
-                                value="{{ old('no_hp') }}">
+                            <label for="telepon">No telepon</label>
+                            <input type="number" name="telepon" class="form-control" id="telepon"
+                                value="{{ old('telepon') }}">
                         </div>
                     </div>
                     <div class="form-group mb-4">
@@ -64,7 +64,7 @@
                         <label>Upload Foto <a href="javascript:void(0)" class="custom-file-container__image-clear"
                                 title="Clear Image">x</a></label>
                         <label class="custom-file-container__custom-file">
-                            <input type="file" name="foto" class="custom-file-container__custom-file__custom-file-input"
+                            <input type="file" name="photo" class="custom-file-container__custom-file__custom-file-input"
                                 accept="image/*">
                             <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
                             <span class="custom-file-container__custom-file__custom-file-control"></span>
@@ -74,8 +74,8 @@
 
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Batal</button>
-                    <button type="submit" class="btn btn-primary">Tambah</button>
+                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+                    <button type="submit" class="btn btn-primary">Done</button>
                 </div>
             </form>
         </div>
@@ -90,7 +90,7 @@
             <form action="{{ route('user.update', $user) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title">Ubah User</h5>
+                    <h5 class="modal-title">Edit User</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -115,14 +115,14 @@
                     </div>
                     <div class="form-row mb-4">
                         <div class="form-group col-md-6">
-                            <label for="nama">Nama</label>
-                            <input type="text" name="nama" class="form-control" id="nama"
-                                value="{{$user->nama ?? old('nama') }}">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" class="form-control" id="name"
+                                value="{{$user->name ?? old('name') }}">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="no_hp">No Hp</label>
-                            <input type="number" name="no_hp" class="form-control" id="no_hp"
-                                value="{{ $user->no_hp ?? old('no_hp') }}">
+                            <label for="telepon">No Telepon</label>
+                            <input type="number" name="telepon" class="form-control" id="telepon"
+                                value="{{ $user->telepon ?? old('telepon') }}">
                         </div>
                     </div>
                     <div class="form-group mb-4">
@@ -145,14 +145,25 @@
                             </select>
                         </div>
                     </div>
+                    {{-- <div class="custom-file-container" data-upload-id="myFirstImage">
+                        <label>Upload Foto <a href="javascript:void(0)" class="custom-file-container__image-clear"
+                                title="Clear Image">x</a></label>
+                        <label class="custom-file-container__custom-file">
+                            <input type="file" name="photo" class="custom-file-container__custom-file__custom-file-input"
+                                accept="image/*">
+                            <input type="hidden" name="MAX_FILE_SIZE" value="10485760" />
+                            <span class="custom-file-container__custom-file__custom-file-control"></span>
+                        </label>
+                        <div class="custom-file-container__image-preview"></div>
+                    </div> --}}
                     <div class="custom-file mb-4">
-                        <input type="file" name="foto" class="custom-file-input" id="customFile">
+                        <input type="file" name="photo" class="custom-file-input" id="customFile">
                         <label class="custom-file-label" for="customFile">Choose file</label>
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Batal</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+                    <button type="submit" class="btn btn-primary">Done</button>
                 </div>
             </form>
         </div>
@@ -172,14 +183,14 @@
                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                     </svg>
                 </div>
-                <p class="modal-text">Apakah anda yakin ingin menghapus ini?.</p>
+                <p class="modal-text">Are you sure you want to delete this user?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Tidak</button>
+                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Nope</button>
                 <form method="POST" action="{{ route('user.destroy', $user) }}">
                     @csrf
                     @method("DELETE")
-                    <button type="submit" class="btn btn-primary">Ya</button>
+                    <button type="submit" class="btn btn-primary">Yeah</button>
                 </form>
             </div>
         </div>

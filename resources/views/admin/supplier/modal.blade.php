@@ -6,7 +6,7 @@
             <form action="{{ route('supplier.update', $supplier) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title">Ubah Supplier</h5>
+                    <h5 class="modal-title">Edit Supplier</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -18,21 +18,21 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group mb-4">
-                        <label for="nama">Nama</label>
-                        <input type="text" name="nama" class="form-control" id="nama" value="{{ $supplier->nama ?? old('nama') }}">
+                        <label for="name">Nama</label>
+                        <input type="text" name="name" class="form-control" id="name" value="{{ $supplier->name ?? old('name') }}">
                     </div>
                     <div class="form-group mb-4">
                         <label for="alamat">Alamat</label>
                         <input type="text" name="alamat" class="form-control" id="alamat" value="{{ $supplier->alamat ?? old('alamat') }}">
                     </div>
                     <div class="form-group mb-4">
-                        <label for="no_hp">No Hp</label>
-                        <input type="number" name="no_hp" class="form-control" id="no_hp" value="{{ $supplier->no_hp ?? old('no_hp') }}">
+                        <label for="telepon">No Telepon</label>
+                        <input type="number" name="telepon" class="form-control" id="telepon" value="{{ $supplier->telepon ?? old('telepon') }}">
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Batal</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+                    <button type="submit" class="btn btn-primary">Done</button>
                 </div>
             </form>
         </div>
@@ -52,14 +52,14 @@
                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                     </svg>
                 </div>
-                <p class="modal-text">Apakah anda yakin ingin menghapus ini?.</p>
+                <p class="modal-text">Are you sure you want to delete this supplier?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Tidak</button>
+                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Nope</button>
                 <form method="POST" action="{{ route('supplier.destroy', $supplier) }}">
                     @csrf
                     @method("DELETE")
-                    <button type="submit" class="btn btn-primary">Ya</button>
+                    <button type="submit" class="btn btn-primary">Yeah</button>
                 </form>
             </div>
         </div>

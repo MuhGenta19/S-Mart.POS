@@ -49,17 +49,17 @@
                         <form action="{{ route('laporan.index') }}">
                             <div class="form-row mb-4">
                                 <div class="form-group col-md-6">
-                                    <label for="">Pilih tanggal awal</label>
-                                    <input id="basicFlatpickr" name="awal" value="{{ $awal }}"
+                                    <label for="">Select Start Date</label>
+                                    <input id="basicFlatpickr" name="awal" value="{{ $first }}"
                                         class="form-control flatpickr flatpickr-input active" type="text">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">Pilih tanggal akhir</label>
-                                    <input id="basicFlatpickr1" name="akhir" value="{{ $akhir }}"
+                                    <label for="">Select End Date</label>
+                                    <input id="basicFlatpickr1" name="akhir" value="{{ $last }}"
                                         class="form-control flatpickr flatpickr-input active" type="text">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Ubah Tanggal</button>
+                            <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Change Date</button>
                             <a href="{{ route('laporan.index')}}" class="btn btn-outline-primary btn-rounded
                             mb-2">Refresh</a>
                         </form>
@@ -77,7 +77,7 @@
                                 <th>Penjualan</th>
                                 <th>Pengeluaran</th>
                                 <th>Pendapatan</th>
-                                <th>Tanggal</th>
+                                <th>tanggal</th>
                             </tr>
                         </thead>
                         <tbody>

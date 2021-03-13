@@ -49,7 +49,7 @@ class PenjualanController extends Controller
             $total_keranjang += 1;
             $total_barang += $dataGetDetail->penjualan->jumlah_barang;
             $total_harga += $dataGetDetail->penjualan->total_harga;
-            $total_diskon += $dataGetDetail->penjualan->barang->diskon;
+            $total_diskon += $dataGetDetail->penjualan->product->diskon;
         }
 
         // $array = array();
@@ -220,15 +220,15 @@ class PenjualanController extends Controller
             $total_item += 1;
             $total_barang += $data->penjualan->jumlah_barang;
             $total_harga += $data->penjualan->total_harga;
-            $total_diskon += $data->penjualan->barang->diskon;
+            $total_diskon += $data->penjualan->product->diskon;
 
             $array[] = [
                 'id' => $data->id,
-                'uid' => $data->penjualan->barang->uid,
-                'name' => $data->penjualan->barang->name,
+                'uid' => $data->penjualan->product->uid,
+                'name' => $data->penjualan->product->name,
                 'jumlah' => $data->penjualan->jumlah_barang,
                 'harga' => $data->penjualan->total_harga,
-                'diskon' => $data->penjualan->barang->diskon,
+                'diskon' => $data->penjualan->product->diskon,
                 'tanggal' => $data->penjualan->created_at,
 
             ];

@@ -12,9 +12,9 @@
                     <div class="widget-header">
                         <div class="row">
                             <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                <h4 class="text-center">Product</h4>
+                                <h4 class="text-center">Produk</h4>
                             </div>
-                        </div>Item Successfully Updated
+                        </div>
                     </div>
 
                     <div class="widget-content widget-content-area text-center">
@@ -25,25 +25,25 @@
                                 <div class="">
                                     <h1 class="s-counter1 s-counter">{{ $total_barang }}</h1>
                                 </div>
-                                <p class="s-counter-text">Total Products</p>
+                                <p class="s-counter-text">Total Produk</p>
                             </div>
                             <div class="counter-container">
                                 <div class="">
                                     <h1 class="s-counter2 s-counter">{{ $total_stok }}</h1>
                                 </div>
-                                <p class="s-counter-text">Total Stock</p>
+                                <p class="s-counter-text">Total Stok</p>
                             </div>
                             <div class="counter-container">
                                 <div class="">
                                     <h1 class="s-counter3 s-counter">{{ $total_harga_beli }}</h1>
                                 </div>
-                                <p class="s-counter-text">Total Purchase Prize</p>
+                                <p class="s-counter-text">Total Harga Beli</p>
                             </div>
                             <div class="counter-container">
                                 <div class="">
                                     <h1 class="s-counter4 s-counter">{{ $total_harga_jual }}</h1>
                                 </div>
-                                <p class="s-counter-text">Total Selling Prize</p>
+                                <p class="s-counter-text">Total Harga Jual</p>
                             </div>
                         </div>
 
@@ -52,7 +52,7 @@
                             @csrf
                             <div class="form-row mb-4">
                                 <div class="form-group col-md-6">
-                                    <label for="name">Name</label>
+                                    <label for="name">Nama Produk</label>
                                     <input type="text" name="name" class="form-control" id="name"
                                         value="{{ old('name') }}">
                                 </div>
@@ -64,12 +64,12 @@
                             </div>
                             <div class="form-row mb-4">
                                 <div class="form-group col-md-6">
-                                    <label for="harga_beli">Purchase Prize</label>
+                                    <label for="harga_beli">Harga Beli</label>
                                     <input type="number" name="harga_beli" class="form-control" id="harga_beli"
                                         value="{{ old('harga_beli') }}">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="harga_jual">Selling Prize</label>
+                                    <label for="harga_jual">Harga Jual</label>
                                     <input type="number" name="harga_jual" class="form-control" id="harga_jual"
                                         value="{{ old('harga_jual') }}">
                                 </div>
@@ -81,7 +81,7 @@
                                         value="{{ old('merek') }}">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="category_id">Category</label>
+                                    <label for="category_id">Kategori</label>
                                     <select id="category_id" name="category_id" class="form-control">
                                         @foreach ($categories as $category)
                                         <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -91,7 +91,7 @@
                             </div>
                             <div class="form-row mb-4">
                                 <div class="form-group col-md-6">
-                                    <label for="stok">Stock</label>
+                                    <label for="stok">Stok</label>
                                     <input type="number" name="stok" class="form-control" id="stok"
                                         value="{{ old('stok') }}">
                                 </div>
@@ -114,13 +114,13 @@
                         <thead>
                             <tr>
                                 <th>Id</th>
-                                <th>Name</th>
+                                <th>Nama Produk</th>
                                 <th>Uid</th>
-                                <th>Purchase Prize</th>
-                                <th>Selling Prize</th>
-                                <th>Category</th>
+                                <th>Harga Beli</th>
+                                <th>Harga Jual</th>
+                                <th>Kategori</th>
                                 <th>Brand</th>
-                                <th>Stock</th>
+                                <th>Stok</th>
                                 <th>Discount</th>
                                 @role('admin|staff')
                                 <th class="text-center">Action</th>

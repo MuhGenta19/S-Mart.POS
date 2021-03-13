@@ -45,7 +45,7 @@
                             </div>
                         </div>
                         @role('admin')
-                        <button type="button" class="btn btn-outline-primary btn-rounded  mb-2" data-toggle="modal" data-target="#create">Tambah User</button>
+                        <button type="button" class="btn btn-outline-primary btn-rounded  mb-2" data-toggle="modal" data-target="#create">Add User</button>
                         @endrole
                     </div>
                 </div>
@@ -61,12 +61,12 @@
                                 <th>Id</th>
                                 <th>Nama</th>
                                 <th>Email</th>
-                                <th>No Hp</th>
+                                <th>No Telepon</th>
                                 <th>Umur</th>
                                 <th>Alamat</th>
                                 <th>Role</th>
                                 @role('admin')
-                                <th class="text-center">Aksi</th>
+                                <th class="text-center">Action</th>
                                 @endrole
                             </tr>
                         </thead>
@@ -76,15 +76,15 @@
                                 <td>
                                     <div class="d-flex">
                                         <div class="usr-img-frame mr-2 rounded-circle">
-                                            <img alt="avatar" class="img-fluid rounded-circle" src="{{ $user->foto }}"
+                                            <img alt="avatar" class="img-fluid rounded-circle" src="{{ $user->photo }}"
                                                 height="90" width="90">
                                         </div>
-                                        <p class="align-self-center mb-0 admin-name"> {{ $user->nama }} </p>
+                                        <p class="align-self-center mb-0 admin-name"> {{ $user->name }} </p>
                                     </div>
                                 </td>
                                 <td>{{ $user->id }}</td>
                                 <td>{{ $user->email }}</td>
-                                <td>{{ $user->no_hp }}</td>
+                                <td>{{ $user->telepon }}</td>
                                 <td>{{ $user->umur }}</td>
                                 <td>{{ $user->alamat }}</td>
                                 <td class="text-center">
@@ -108,7 +108,7 @@
                                 <td class="text-center">
                                     <div class="btn-group-vertical" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm" data-toggle="modal"
-                                            data-target="#update-{{$user->id}}"> Ubah </button>
+                                            data-target="#update-{{$user->id}}"> Edit </button>
                                         <button type="button" class="btn btn-outline-danger btn-rounded btn-sm" data-toggle="modal"
                                             data-target="#delete-{{$user->id}}"> Delete </button>
                                     </div>

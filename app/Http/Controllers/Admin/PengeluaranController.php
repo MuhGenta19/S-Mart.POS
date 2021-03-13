@@ -14,6 +14,7 @@ class PengeluaranController extends Controller
         $pengeluarans = Pengeluaran::get();
         $nominal = Pengeluaran::sum('nominal');
         $jumlah = Pengeluaran::count();
+        // dd($nominal);
         $data = [
             'category_name' => 'pengeluaran',
             'page_name' => 'index_pengeluaran',

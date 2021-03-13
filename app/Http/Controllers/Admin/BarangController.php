@@ -34,7 +34,7 @@ class BarangController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
-            'uid' => 'integer|unique:barangs',
+            'uid' => 'integer|unique:products',
             'harga_beli' => 'required|integer',
             'harga_jual' => 'required|integer',
             'category_id' => 'required|integer',

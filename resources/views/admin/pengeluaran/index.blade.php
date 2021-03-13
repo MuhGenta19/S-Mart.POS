@@ -24,11 +24,11 @@
                                 <div class="">
                                     <h1 class="s-counter1 s-counter">{{ $jumlah }}</h1>
                                 </div>
-                                <p class="s-counter-text">Total Jumlah</p>
+                                <p class="s-counter-text">Jumlah Pengeluaran</p>
                             </div>
                             <div class="counter-container">
                                 <div class="">
-                                    <h1 class="s-counter2 s-counter">{{ $biaya }}</h1>
+                                    <h1 class="s-counter2 s-counter">{{ $nominal }}</h1>
                                 </div>
                                 <p class="s-counter-text">Total Biaya</p>
                             </div>
@@ -37,18 +37,17 @@
                             @csrf
                             <div class="form-row mb-4">
                                 <div class="form-group col-md-6">
-                                    <label for="tipe">Tipe</label>
-                                    <input type="text" name="tipe" class="form-control" id="tipe"
-                                        value="{{ old('tipe') }}">
+                                    <label for="jenis_pengeluaran">jenis pengeluaran</label>
+                                    <input type="text" name="jenis_pengeluaran" class="form-control" id="jenis_pengeluaran"
+                                        value="{{ old('jenis_pengeluaran') }}">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="biaya">Biaya</label>
-                                    <input type="number" name="biaya" class="form-control" id="biaya"
-                                        value="{{ old('biaya') }}">
+                                    <label for="nominal">Biaya</label>
+                                    <input type="number" name="nominal" class="form-control" id="nominal"
+                                        value="{{ old('nominal') }}">
                                 </div>
                             </div>
-                        <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Tambah
-                            Pengeluaran</button>
+                        <button type="submit" class="btn btn-outline-primary btn-rounded mb-2">Add Pengeluaran</button>
                         </form>
                     </div>
                 </div>
@@ -60,23 +59,24 @@
                         <thead>
                             <tr>
                                 <th>No.</th>
-                                <th>Tipe</th>
+                                <th>jenis pengeluaran</th>
                                 <th>Biaya</th>
                                 <th>Tanggal</th>
-                                <th class="text-center">Aksi</th>
+                                <th class="text-center">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($pengeluarans as $pengeluaran)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $pengeluaran->tipe }}</td>
-                                <td>{{ $pengeluaran->biaya }}</td>
+                                <td>{{ $pengeluaran->jenis_pengeluaran }}</td>
+                                <td>{{ $pengeluaran->nominal }}</td>
                                 <td>{{ $pengeluaran->created_at }}</td>
                                 <td class="text-center">
+                                    
                                     <div class="btn-group-vertical" role="group" aria-label="Basic example">
                                         <button type="button" class="btn btn-outline-secondary btn-rounded btn-sm"
-                                            data-toggle="modal" data-target="#update-{{$pengeluaran->id}}"> Ubah
+                                            data-toggle="modal" data-target="#update-{{$pengeluaran->id}}"> Edit
                                         </button>
                                         <button type="button" class="btn btn-outline-danger btn-rounded btn-sm"
                                             data-toggle="modal" data-target="#delete-{{$pengeluaran->id}}"> Delete

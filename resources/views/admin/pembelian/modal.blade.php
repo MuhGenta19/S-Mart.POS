@@ -6,7 +6,7 @@
             <form action="{{ route('pembelian.update', $pembelian) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title">Ubah Pembelian</h5>
+                    <h5 class="modal-title">Edit Pembelian</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -22,35 +22,35 @@
                             <label for="supplier_id">Supplier</label>
                             <select id="supplier_id" name="supplier_id" class="form-control">
                                 @foreach ($suppliers as $supplier)
-                                <option value="{{ $supplier->id }}">{{ $supplier->nama }}</option>
+                                <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="barang_id">Barang</label>
+                            <label for="barang_id">Produk</label>
                             <select id="barang_id" name="barang_id" class="form-control">
-                                @foreach ($barangs as $barang)
-                                <option value="{{ $barang->id }}">{{ $barang->nama }}</option>
+                                @foreach ($products as $product)
+                                <option value="{{ $product->id }}">{{ $product->name }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
                     <div class="form-row mb-4">
                         <div class="form-group col-md-6">
-                            <label for="jumlah">Jumlah</label>
+                            <label for="jumlah">Jumlah Barang</label>
                             <input type="number" name="jumlah" class="form-control" id="jumlah"
                                 value="{{ $pembelian->jumlah ?? old('jumlah') }}">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="total_biaya">Total Biaya</label>
+                            <label for="total_biaya">Total Harga</label>
                             <input type="number" name="total_biaya" class="form-control" id="total_biaya"
                                 value="{{ $pembelian->total_biaya ?? old('total_biaya') }}">
                         </div>
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Batal</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+                    <button type="submit" class="btn btn-primary">Done</button>
                 </div>
             </form>
         </div>

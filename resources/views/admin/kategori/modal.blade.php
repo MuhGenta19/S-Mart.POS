@@ -1,12 +1,12 @@
-@foreach ($kategoris as $kategori)
-<div id="update-{{$kategori->id}}" class="modal animated zoomInUp custo-zoomInUp" role="dialog">
+@foreach ($categories as $category)
+<div id="update-{{$category->id}}" class="modal animated zoomInUp custo-zoomInUp" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
-            <form action="{{ route('kategori.update', $kategori) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('kategori.update', $category) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="modal-header">
-                    <h5 class="modal-title">Ubah Kategori</h5>
+                    <h5 class="modal-title">Edit Kategori</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                             viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -18,21 +18,21 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group mb-4">
-                        <label for="nama">nama</label>
-                        <input type="text" name="nama" class="form-control" id="nama"
-                            value="{{ $kategori->nama ?? old('nama') }}">
+                        <label for="name">Nama Kategori</label>
+                        <input type="text" name="name" class="form-control" id="name"
+                            value="{{ $category->name ?? old('name') }}">
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">
-                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Batal</button>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Discard</button>
+                    <button type="submit" class="btn btn-primary">Done</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
 
-<div class="modal modal-notification animated zoomInUp custo-zoomInUp" id="delete-{{$kategori->id}}" tabindex="-1"
+<div class="modal modal-notification animated zoomInUp custo-zoomInUp" id="delete-{{$category->id}}" tabindex="-1"
     role="dialog" aria-labelledby="deleteLabel" aria-hidden="true">
     <div class="modal-dialog" role="document" id="deleteLabel">
         <div class="modal-content">
@@ -45,14 +45,14 @@
                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                     </svg>
                 </div>
-                <p class="modal-text">Apakah anda yakin ingin menghapus ini?.</p>
+                <p class="modal-text">Are you sure you want to delete this category?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Tidak</button>
-                <form method="POST" action="{{ route('kategori.destroy', $kategori) }}">
+                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Nope</button>
+                <form method="POST" action="{{ route('kategori.destroy', $category) }}">
                     @csrf
                     @method("DELETE")
-                    <button type="submit" class="btn btn-primary">Ya</button>
+                    <button type="submit" class="btn btn-primary">Yeah</button>
                 </form>
             </div>
         </div>
