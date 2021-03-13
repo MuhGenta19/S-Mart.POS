@@ -12,6 +12,7 @@ class KategoriController extends Controller
     public function index()
     {
         $categories = Category::get();
+
         $total_category = Category::count();
         $data = [
             'category_name' => 'kategori',
