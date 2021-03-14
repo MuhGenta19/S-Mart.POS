@@ -58,8 +58,8 @@
                     <table id="html5-extension" class="table table-hover" style="width:100%">
                         <thead>
                             <tr>
-                                <th>Id</th>
                                 <th>Nama</th>
+                                <th>Id</th>
                                 <th>Email</th>
                                 <th>No Telepon</th>
                                 <th>Umur</th>
