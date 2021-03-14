@@ -127,8 +127,8 @@ class PembelianController extends Controller
         $pembelian = Pembelian::find($id);
         $total_barangOld = $pembelian->total_barang;
         $product_idOld = $pembelian->product_id;
-        $barangOld = Barang::find($product_idOld);
-        $stokOld = $barangOld->stok;
+        $productOld = Product::find($product_idOld);
+        $stokOld = $productOld->stok;
 
         $params = [
             'supplier_id' => $request->supplier_id ?? $pembelian->supplier_id,
@@ -142,21 +142,21 @@ class PembelianController extends Controller
         }
 
         $pembelian->update($params);
-        $barang = Barang::find($pembelian->product_id);
+        $product = Product::find($pembelian->product_id);
 
         if ($product_idOld !== $pembelian->product_id) {
-            $dataOld['stok'] = $barangOld->stok - $total_barangOld;
-            $barangOld->update($dataOld);
+            $dataOld['stok'] = $productOld->stok - $total_barangOld;
+            $productOld->update($dataOld);
 
-            $data['stok'] =  $barang->stok + $pembelian->total_barang;
+            $data['stok'] =  $product->stok + $pembelian->total_barang;
             $data['harga_beli'] = $pembelian->total_biaya / $pembelian->total_barang;
             $data['harga_jual'] = $data['harga_beli'] + ($data['harga_beli'] * 20 / 100);
-            $barang->update($data);
+            $product->update($data);
         } else {
-            $data['stok'] = $barang->stok - $total_barangOld + $pembelian->total_barang;
+            $data['stok'] = $product->stok - $total_barangOld + $pembelian->total_barang;
             $data['harga_beli'] = $pembelian->total_biaya / $pembelian->total_barang;
             $data['harga_jual'] = $data['harga_beli'] + ($data['harga_beli'] * 20 / 100);
-            $barang->update($data);
+            $product->update($data);
         }
 
         return back()->withToastSuccess('successfully updated pembelian');
@@ -171,12 +171,12 @@ class PembelianController extends Controller
     public function destroy($id)
     {
         $pembelian = Pembelian::find($id);
-        $barang = Barang::find($pembelian->product_id);
-        if ($barang->stok < $pembelian->total_barang) {
+        $product = Product::find($pembelian->product_id);
+        if ($product->stok < $pembelian->total_barang) {
             return back()->withToastError('failed to delete pembelian because the products is already purchased');
         } else {
-            $data['stok'] = $barang->stok - $pembelian->total_barang;
-            $barang->update($data);
+            $data['stok'] = $product->stok - $pembelian->total_barang;
+            $product->update($data);
             $pembelian->delete();
         }
 
