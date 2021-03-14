@@ -49,7 +49,7 @@ class PenjualanController extends Controller
             $total_keranjang += 1;
             $total_barang += $dataGetDetail->penjualan->jumlah_barang;
             $total_harga += $dataGetDetail->penjualan->total_harga;
-            $total_diskon += $dataGetDetail->penjualan->product->diskon;
+            $total_diskon += $dataGetDetail->penjualan->product->diskon ?? 0;
         }
 
         // $array = array();
