@@ -94,10 +94,10 @@
                             @foreach ($penjualans as $penjualan)
                             <tr>
                                 <td>{{ $no ++ }}</td>
-                                <td>{{ $penjualan->product->name }}</td>
-                                <td>{{ $penjualan->jumlah_barang }}</td>
-                                <td>{{ $penjualan->total_harga }}</td>
-                                <td>{{ $penjualan->created_at }}</td>
+                                <td>{{ $penjualan->product->name ?? '' }}</td>
+                                <td>{{ $penjualan->jumlah_barang ?? '' }}</td>
+                                <td>{{ $penjualan->total_harga ?? '' }}</td>
+                                <td>{{ $penjualan->created_at ?? '' }}</td>
                                 @role('admin|kasir')
                                 <td class="text-center">
                                     <div class="btn-group-vertical" role="group" aria-label="Basic example">
