@@ -64,9 +64,9 @@
                             </div>
                             <div class="form-row mb-4">
                                 <div class="form-group col-md-6">
-                                    <label for="jumlah">Jumlah Produk</label>
-                                    <input type="number" name="jumlah" class="form-control" id="jumlah"
-                                        value="{{ old('jumlah') }}">
+                                    <label for="total_barang">Jumlah Produk</label>
+                                    <input type="number" name="total_barang" class="form-control" id="total_barang"
+                                        value="{{ old('total_barang') }}">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="total_biaya">Total Harga</label>
