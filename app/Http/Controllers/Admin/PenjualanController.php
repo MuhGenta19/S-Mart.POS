@@ -47,8 +47,8 @@ class PenjualanController extends Controller
         $total_diskon = 0;
         foreach ($getdetailPenjualan as $dataGetDetail) {
             $total_keranjang += 1;
-            $total_barang += $dataGetDetail->penjualan->jumlah_barang;
-            $total_harga += $dataGetDetail->penjualan->total_harga;
+            $total_barang += $dataGetDetail->penjualan->jumlah_barang ?? 0;
+            $total_harga += $dataGetDetail->penjualan->total_harga ?? 0;
             $total_diskon += $dataGetDetail->penjualan->product->diskon ?? 0;
         }
 
@@ -168,7 +168,7 @@ class PenjualanController extends Controller
         if ($penjualan->dibayar > 0) {
             return back()->withToastError("cannot update or exchange product(s) that have been purchased");
         }
-        $product = Barang::find($request->product_id ?? $penjualan->product_id);
+        $product = Product::find($request->product_id ?? $penjualan->product_id);
         $params = [
             'product_id' => $request->product_id ?? $penjualan->product_id,
             'jumlah_barang' => $request->jumlah_barang ?? $penjualan->jumlah_barang,
