@@ -27,8 +27,8 @@
                             </select>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="barang_id">Produk</label>
-                            <select id="barang_id" name="barang_id" class="form-control">
+                            <label for="product_id">Produk</label>
+                            <select id="product_id" name="product_id" class="form-control">
                                 @foreach ($products as $product)
                                 <option value="{{ $product->id }}">{{ $product->name }}</option>
                                 @endforeach
@@ -37,9 +37,9 @@
                     </div>
                     <div class="form-row mb-4">
                         <div class="form-group col-md-6">
-                            <label for="jumlah">Jumlah Barang</label>
-                            <input type="number" name="jumlah" class="form-control" id="jumlah"
-                                value="{{ $pembelian->jumlah ?? old('jumlah') }}">
+                            <label for="total_barang">Jumlah Produk</label>
+                            <input type="number" name="total_barang" class="form-control" id="total_barang"
+                                value="{{ $pembelian->total_barang ?? old('total_barang') }}">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="total_biaya">Total Harga</label>
@@ -70,14 +70,14 @@
                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                     </svg>
                 </div>
-                <p class="modal-text">Apakah anda yakin ingin menghapus ini?.</p>
+                <p class="modal-text">Are ypu sure you want to delete this pembelian?</p>
             </div>
             <div class="modal-footer justify-content-between">
-                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Tidak</button>
+                <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Nope</button>
                 <form method="POST" action="{{ route('pembelian.destroy', $pembelian) }}">
                     @csrf
                     @method("DELETE")
-                    <button type="submit" class="btn btn-primary">Ya</button>
+                    <button type="submit" class="btn btn-primary">Yeah</button>
                 </form>
             </div>
         </div>

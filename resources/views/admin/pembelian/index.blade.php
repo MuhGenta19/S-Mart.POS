@@ -88,7 +88,7 @@
                                 <th>Id</th>
                                 <th>Supplier</th>
                                 <th>Produk</th>
-                                <th>Jumlah Barang</th>
+                                <th>Jumlah Produk</th>
                                 <th>Total Harga</th>
                                 <th>Tanggal</th>
                                 @role('admin|staff')
