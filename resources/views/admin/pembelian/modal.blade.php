@@ -70,7 +70,7 @@
                         <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
                     </svg>
                 </div>
-                <p class="modal-text">Are ypu sure you want to delete this pembelian?</p>
+                <p class="modal-text">Are you sure you want to delete this pembelian?</p>
             </div>
             <div class="modal-footer justify-content-between">
                 <button class="btn" data-dismiss="modal"><i class="flaticon-cancel-12"></i> Nope</button>
