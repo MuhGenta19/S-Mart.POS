@@ -50,12 +50,12 @@
                             <div class="form-row mb-4">
                                 <div class="form-group col-md-6">
                                     <label for="">Select Start Date</label>
-                                    <input id="basicFlatpickr" name="awal" value="{{ $first }}"
+                                    <input id="basicFlatpickr" name="first" value="{{ $first }}"
                                         class="form-control flatpickr flatpickr-input active" type="text">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">Select End Date</label>
-                                    <input id="basicFlatpickr1" name="akhir" value="{{ $last }}"
+                                    <input id="basicFlatpickr1" name="last" value="{{ $last }}"
                                         class="form-control flatpickr flatpickr-input active" type="text">
                                 </div>
                             </div>
