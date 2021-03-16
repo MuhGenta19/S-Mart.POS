@@ -63,15 +63,15 @@
                             @foreach ($penjualans as $penjualan)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>
-                                <td>{{ $penjualan->product->name }}</td>
-                                <td>{{ $penjualan->jumlah_barang }}</td>
-                                <td>{{ $penjualan->total_harga }}</td>
-                                <td>{{ $penjualan->dibayar }}</td>
-                                <td>{{ $penjualan->kembalian }}</td>
-                                <td>{{ $penjualan->product->diskon }}</td>
-                                <td>{{ !empty($penjualan->member) ? $penjualan->member->user->name:' '}}</td>
-                                <td>{{ !empty($penjualan->user) ? $penjualan->user->name:'' }}</td>
-                                <td>{{ $penjualan->created_at }}</td>
+                                <td>{{ $penjualan->product->name ?? '' }}</td>
+                                <td>{{ $penjualan->jumlah_barang ?? '' }}</td>
+                                <td>{{ $penjualan->total_harga ?? '' }}</td>
+                                <td>{{ $penjualan->dibayar ?? '' }}</td>
+                                <td>{{ $penjualan->kembalian ?? '' }}</td>
+                                <td>{{ $penjualan->product->diskon ?? '' }}</td>
+                                <td>{{ !empty($penjualan->member) ? $penjualan->member->user->name: ''}}</td>
+                                <td>{{ !empty($penjualan->user) ? $penjualan->user->name: '' }}</td>
+                                <td>{{ $penjualan->created_at ?? '' }}</td>
                             </tr>
                             @endforeach
                         </tbody>
