@@ -197,7 +197,7 @@ code {
 .navbar {
   padding: 0;
   min-height: 80px;
-  background: #445ede;
+  background: #ffffff;
   transition: 0.3s ease all;
   box-shadow: 0 4px 6px 0 rgba(85, 85, 85, 0.08), 0 1px 20px 0 rgba(0, 0, 0, 0.07), 0px 1px 11px 0px rgba(0, 0, 0, 0.07);
 }
@@ -233,9 +233,9 @@ code {
   height: 80px;
   display: flex;
   justify-content: space-around;
-  background: #fff;
-  border-right: 1px solid #445ede;
-  background-image: linear-gradient(to right, #445ede 0%, #304aca 100%);
+  background: rgb(68, 98, 194);
+  border-right: 1px solid #5259c2;
+  background-image: linear-gradient(to right, #ffffff 0%, #ffffff 100%);
 }
 .header-container .navbar-nav.theme-brand .theme-logo {
   align-self: center;
@@ -256,7 +256,7 @@ code {
   padding: 0;
   font-size: 25px;
   font-weight: 700;
-  color: #fff;
+  color: rgb(80, 105, 214);
   letter-spacing: 0px;
 }
 .header-container .toggle-sidebar {
@@ -265,7 +265,7 @@ code {
 .header-container .sidebarCollapse svg {
   width: 27px;
   height: 27px;
-  color: #fff;
+  color: rgb(80, 105, 214);
   stroke-width: 2px;
 }
 
