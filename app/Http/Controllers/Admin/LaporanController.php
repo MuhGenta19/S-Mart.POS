@@ -33,10 +33,10 @@ class LaporanController extends Controller
             $tanggal = $first;
             $first = date('Y-m-d', strtotime("+1 day", strtotime($first)));
 
-            $pembelian  = Pembelian::where('created_at', 'LIKE', "$tanggal%")->orderBy('DESC')->sum('total_biaya');
-            $dibayar = Penjualan::where('created_at', 'LIKE', "$tanggal%")->orderBy('DESC')->sum('dibayar');
-            $kembalian = Penjualan::where('created_at', 'LIKE', "$tanggal%")->orderBy('DESC')->sum('kembalian');
-            $pengeluaran = Pengeluaran::where('created_at', 'LIKE', "$tanggal%")->orderBy('DESC')->sum('nominal');
+            $pembelian  = Pembelian::where('created_at', 'LIKE', "$tanggal%")->sum('total_biaya');
+            $dibayar = Penjualan::where('created_at', 'LIKE', "$tanggal%")->sum('dibayar');
+            $kembalian = Penjualan::where('created_at', 'LIKE', "$tanggal%")->sum('kembalian');
+            $pengeluaran = Pengeluaran::where('created_at', 'LIKE', "$tanggal%")->sum('nominal');
             $penjualan = $dibayar - $kembalian;
             $pendapatan = $penjualan - $pembelian - $pengeluaran;
 
