@@ -234,7 +234,7 @@ code {
   display: flex;
   justify-content: space-around;
   background: rgb(68, 98, 194);
-  border-right: 1px solid #5259c2;
+  border-right: 1px solid #c9c9d1;
   background-image: linear-gradient(to right, #ffffff 0%, #ffffff 100%);
 }
 .header-container .navbar-nav.theme-brand .theme-logo {
