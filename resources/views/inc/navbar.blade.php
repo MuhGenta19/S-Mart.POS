@@ -6,11 +6,11 @@
         <header class="header navbar navbar-expand-sm">
 
             <ul class="navbar-nav theme-brand flex-row  text-center">
-                <li class="nav-item theme-logo">
+                {{-- <li class="nav-item theme-logo">
                     <a href="/admin">
-                        {{-- <img src="{{asset('img/smart.png')}}" class="navbar-logo" alt="logo"> --}}
+                        <img src="{{asset('img/smart.png')}}" class="navbar-logo" alt="logo">
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item theme-text">
                     <a href="/admin" class="nav-link">S.Mart</a>
                 </li>
